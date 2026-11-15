@@ -133,6 +133,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T04:20:13.774Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://tandaseru.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T10:13:41.810Z",
+      "addedBy": "issue"
     }
   ]
 }
