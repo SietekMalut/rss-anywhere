@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T03:14:37.288Z",
+  "generatedAt": "2026-11-15T03:19:20.771Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
-  "ok": 3,
+  "ok": 4,
   "failed": 1,
   "feeds": [
     {
@@ -13,8 +13,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:14:32.173Z",
-      "elapsedMs": 243,
+      "updatedAt": "2026-11-15T03:18:45.305Z",
+      "elapsedMs": 173,
       "error": null
     },
     {
@@ -26,8 +26,8 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:14:33.463Z",
-      "elapsedMs": 1290,
+      "updatedAt": "2026-11-15T03:18:48.043Z",
+      "elapsedMs": 2738,
       "error": null
     },
     {
@@ -39,8 +39,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "updatedAt": "2026-11-15T03:14:36.991Z",
-      "elapsedMs": 3528,
+      "updatedAt": "2026-11-15T03:18:50.731Z",
+      "elapsedMs": 2688,
       "error": null
     },
     {
@@ -52,9 +52,22 @@
       "source": "error",
       "feedUrl": null,
       "jsonUrl": null,
-      "updatedAt": "2026-11-15T03:14:37.288Z",
-      "elapsedMs": 297,
+      "updatedAt": "2026-11-15T03:18:51.256Z",
+      "elapsedMs": 525,
       "error": "Sumber membalas HTTP 400."
+    },
+    {
+      "id": "haliyora-id-2a0aa7",
+      "url": "https://www.haliyora.id/",
+      "title": "Bot Verification",
+      "siteUrl": "https://www.haliyora.id/",
+      "count": 0,
+      "source": "html",
+      "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.xml",
+      "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.json",
+      "updatedAt": "2026-11-15T03:19:20.771Z",
+      "elapsedMs": 29515,
+      "error": null
     }
   ]
 }
