@@ -84,7 +84,7 @@ Kalau satu sumber gagal diambil, file lamanya **tidak dihapus** — feed tetap b
 
 ```
 sources.json            daftar URL yang dijadikan feed
-feeds/                  hasil build (di-commit): <id>.xml + <id>.json
+feeds/                  hasil build (tidak di-commit): <id>.xml + <id>.json
 feeds.json              daftar feed untuk UI (judul, jumlah item, link)
 pages/                  UI statis yang disajikan GitHub Pages
 dist/                   hasil build siap-deploy (tidak di-commit)

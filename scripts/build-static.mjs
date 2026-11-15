@@ -5,6 +5,10 @@
  *   sources.json  ->  feeds/<id>.xml  +  feeds/<id>.json  +  feeds.json
  *                 ->  dist/ (siap di-upload sebagai artefak GitHub Pages)
  *
+ * feeds/ hanya ada di dist/ dan di disk; folder itu tidak di-commit supaya
+ * riwayat git tidak menggelembung (XML bisa ratusan KB per feed per build).
+ * feeds.json kecil dan di-commit sebagai metadata + penanda build terakhir.
+ *
  * Dijalankan oleh .github/workflows/feeds.yml (tiap 30 menit / manual / issue baru),
  * tapi bisa juga dijalankan manual di lokal: node scripts/build-static.mjs
  */
@@ -47,6 +51,20 @@ async function readJson(file, fallback) {
     return JSON.parse(await readFile(file, 'utf8'));
   } catch {
     return fallback;
+  }
+}
+
+/** Ambil file yang sedang tayang di GitHub Pages (untuk fallback saat sumber gagal). */
+async function fetchPublished(name) {
+  try {
+    const res = await fetch(SITE_BASE + name + '?t=' + Date.now(), {
+      headers: { 'user-agent': 'RSSAnywhere/1.0 (+' + SITE_BASE + ')' },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
   }
 }
 
@@ -112,11 +130,34 @@ async function main() {
     } catch (err) {
       failed++;
       const message = String((err && err.message) || err).slice(0, 200);
-      const old = previousById.get(id);
-      const kept = old && old.feedUrl && !old.error ? old : null;
-      if (kept) {
-        feeds.push({ ...kept, error: message });
-        console.log(`  gagal (pakai hasil lama)  ${rawUrl} - ${message}`);
+      const old = previousById.get(id) || null;
+
+      // Fallback: pakai file yang masih tayang di GitHub Pages supaya feed
+      // tidak hilang hanya karena satu pengambilan gagal.
+      const liveXml = await fetchPublished('feeds/' + id + '.xml');
+      const liveJson = await fetchPublished('feeds/' + id + '.json');
+
+      if (liveXml && liveJson) {
+        await writeFile(path.join(FEEDS_DIR, id + '.xml'), liveXml, 'utf8');
+        await writeFile(path.join(FEEDS_DIR, id + '.json'), liveJson, 'utf8');
+        feeds.push({
+          id,
+          url: rawUrl,
+          title: (old && old.title) || new URL(rawUrl).hostname,
+          siteUrl: (old && old.siteUrl) || rawUrl,
+          count: (old && old.count) || 0,
+          source: (old && old.source) || 'unknown',
+          feedUrl: selfUrl,
+          jsonUrl,
+          updatedAt: (old && old.updatedAt) || new Date().toISOString(),
+          elapsedMs: Date.now() - startedAt,
+          stale: true,
+          error: message,
+        });
+        console.log(`  gagal (pakai versi tayang terakhir)  ${rawUrl} - ${message}`);
+      } else if (old && old.feedUrl) {
+        feeds.push({ ...old, error: message });
+        console.log(`  gagal (metadata lama)  ${rawUrl} - ${message}`);
       } else {
         feeds.push({
           id,
