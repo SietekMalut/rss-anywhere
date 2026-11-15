@@ -53,6 +53,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:32:03.764Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.portalmalut.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:35:51.298Z",
+      "addedBy": "issue"
     }
   ]
 }
