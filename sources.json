@@ -13,6 +13,14 @@
       "filter": "",
       "mode": "auto",
       "addedAt": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "url": "https://terbitmalut.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:05:31.634Z",
+      "addedBy": "issue"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T03:04:35.094Z",
+  "generatedAt": "2026-11-15T03:05:40.010Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
-  "ok": 2,
+  "ok": 3,
   "failed": 0,
   "feeds": [
     {
@@ -13,8 +13,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:04:30.854Z",
-      "elapsedMs": 262,
+      "updatedAt": "2026-11-15T03:05:31.894Z",
+      "elapsedMs": 212,
       "error": null
     },
     {
@@ -26,8 +26,21 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:04:35.094Z",
-      "elapsedMs": 4239,
+      "updatedAt": "2026-11-15T03:05:37.010Z",
+      "elapsedMs": 5115,
+      "error": null
+    },
+    {
+      "id": "terbitmalut-com-859a30",
+      "url": "https://terbitmalut.com/",
+      "title": "Terbitmalut.com",
+      "siteUrl": "https://terbitmalut.com/",
+      "count": 10,
+      "source": "native",
+      "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
+      "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
+      "updatedAt": "2026-11-15T03:05:40.010Z",
+      "elapsedMs": 3000,
       "error": null
     }
   ]
