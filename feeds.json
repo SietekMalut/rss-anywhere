@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-15T03:39:27.594Z",
+  "generatedAt": "2026-11-15T03:43:35.640Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
   "ok": 7,
-  "failed": 2,
+  "failed": 3,
   "feeds": [
     {
       "id": "github-blog-d9c39a",
@@ -13,8 +13,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:38:42.338Z",
-      "elapsedMs": 166,
+      "updatedAt": "2026-11-15T03:42:38.133Z",
+      "elapsedMs": 390,
       "error": null
     },
     {
@@ -26,8 +26,8 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:38:45.826Z",
-      "elapsedMs": 3487,
+      "updatedAt": "2026-11-15T03:42:42.508Z",
+      "elapsedMs": 4374,
       "error": null
     },
     {
@@ -39,8 +39,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "updatedAt": "2026-11-15T03:38:48.563Z",
-      "elapsedMs": 2737,
+      "updatedAt": "2026-11-15T03:42:45.584Z",
+      "elapsedMs": 3075,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "source": "error",
       "feedUrl": null,
       "jsonUrl": null,
-      "updatedAt": "2026-11-15T03:38:49.109Z",
-      "elapsedMs": 546,
+      "updatedAt": "2026-11-15T03:42:46.276Z",
+      "elapsedMs": 692,
       "error": "Sumber membalas HTTP 400."
     },
     {
@@ -65,8 +65,8 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.json",
-      "updatedAt": "2026-11-15T03:39:11.536Z",
-      "elapsedMs": 22427,
+      "updatedAt": "2026-11-15T03:43:11.820Z",
+      "elapsedMs": 25544,
       "error": null
     },
     {
@@ -78,8 +78,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.json",
-      "updatedAt": "2026-11-15T03:39:19.519Z",
-      "elapsedMs": 7983,
+      "updatedAt": "2026-11-15T03:43:21.792Z",
+      "elapsedMs": 9972,
       "error": null
     },
     {
@@ -91,8 +91,8 @@
       "source": "error",
       "feedUrl": null,
       "jsonUrl": null,
-      "updatedAt": "2026-11-15T03:39:20.463Z",
-      "elapsedMs": 944,
+      "updatedAt": "2026-11-15T03:43:22.820Z",
+      "elapsedMs": 1027,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -104,8 +104,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/portalmalut-com-ec5d73.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/portalmalut-com-ec5d73.json",
-      "updatedAt": "2026-11-15T03:39:24.665Z",
-      "elapsedMs": 4202,
+      "updatedAt": "2026-11-15T03:43:31.792Z",
+      "elapsedMs": 8972,
       "error": null
     },
     {
@@ -117,9 +117,22 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/coretansatu-com-a05a9c.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/coretansatu-com-a05a9c.json",
-      "updatedAt": "2026-11-15T03:39:27.594Z",
-      "elapsedMs": 2929,
+      "updatedAt": "2026-11-15T03:43:34.949Z",
+      "elapsedMs": 3157,
       "error": null
+    },
+    {
+      "id": "lidikpost-id-c93374",
+      "url": "https://lidikpost.id/",
+      "title": "lidikpost.id",
+      "siteUrl": "https://lidikpost.id/",
+      "count": 0,
+      "source": "error",
+      "feedUrl": null,
+      "jsonUrl": null,
+      "updatedAt": "2026-11-15T03:43:35.640Z",
+      "elapsedMs": 691,
+      "error": "Sumber menolak akses (HTTP 403)."
     }
   ]
 }
