@@ -93,6 +93,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:49:28.665Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://nalartimur.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:54:01.873Z",
+      "addedBy": "issue"
     }
   ]
 }
