@@ -109,6 +109,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:59:51.214Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.narasitimur.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T04:14:05.238Z",
+      "addedBy": "issue"
     }
   ]
 }
