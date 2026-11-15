@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T03:13:55.200Z",
+  "generatedAt": "2026-11-15T03:14:37.288Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
   "ok": 3,
   "failed": 1,
@@ -13,21 +13,21 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:13:51.148Z",
-      "elapsedMs": 421,
+      "updatedAt": "2026-11-15T03:14:32.173Z",
+      "elapsedMs": 243,
       "error": null
     },
     {
       "id": "kompas-com-c667a3",
       "url": "https://www.kompas.com",
-      "title": "kompas.com",
+      "title": "KOMPAS.com",
       "siteUrl": "https://www.kompas.com/",
-      "count": 0,
+      "count": 20,
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:13:51.392Z",
-      "elapsedMs": 244,
+      "updatedAt": "2026-11-15T03:14:33.463Z",
+      "elapsedMs": 1290,
       "error": null
     },
     {
@@ -39,8 +39,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "updatedAt": "2026-11-15T03:13:54.667Z",
-      "elapsedMs": 3275,
+      "updatedAt": "2026-11-15T03:14:36.991Z",
+      "elapsedMs": 3528,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "source": "error",
       "feedUrl": null,
       "jsonUrl": null,
-      "updatedAt": "2026-11-15T03:13:55.200Z",
-      "elapsedMs": 533,
+      "updatedAt": "2026-11-15T03:14:37.288Z",
+      "elapsedMs": 297,
       "error": "Sumber membalas HTTP 400."
     }
   ]
