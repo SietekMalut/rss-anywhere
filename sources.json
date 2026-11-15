@@ -61,6 +61,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:35:51.298Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://coretansatu.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:38:42.133Z",
+      "addedBy": "issue"
     }
   ]
 }
