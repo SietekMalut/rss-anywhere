@@ -1,0 +1,103 @@
+name: Feed builder
+
+# Membangun semua feed di sources.json, lalu menerbitkannya ke GitHub Pages.
+# - cron: refresh tiap 30 menit
+# - workflow_dispatch: tombol "Run workflow" manual
+# - issues: issue baru "[feed] https://..." menambahkan sumber dan langsung membangun feed
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: feed-builder
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.issue.outputs.allowed }}
+      is_new: ${{ steps.issue.outputs.is_new }}
+      duplicate: ${{ steps.issue.outputs.duplicate }}
+      feed_url: ${{ steps.issue.outputs.feed_url }}
+      feed_json: ${{ steps.issue.outputs.feed_json }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Baca permintaan dari issue
+        id: issue
+        if: github.event_name == 'issues'
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          SITE_BASE: https://sietekmalut.github.io/rss-anywhere/
+        run: node scripts/issue-to-source.mjs
+
+      - name: Bangun feed
+        env:
+          SITE_BASE: https://sietekmalut.github.io/rss-anywhere/
+        run: node scripts/build-static.mjs
+
+      - name: Simpan hasil ke repositori
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "tidak ada perubahan"
+          else
+            git commit -m "feeds: perbarui $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Balas issue
+        if: github.event_name == 'issues' && steps.issue.outputs.allowed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          IS_NEW: ${{ steps.issue.outputs.is_new }}
+          DUP: ${{ steps.issue.outputs.duplicate }}
+          FEED_URL: ${{ steps.issue.outputs.feed_url }}
+          FEED_JSON: ${{ steps.issue.outputs.feed_json }}
+        run: |
+          if [ "$DUP" = "true" ]; then
+            body="Feed untuk URL ini sudah terdaftar: $FEED_URL"
+          elif [ "$IS_NEW" = "true" ]; then
+            body="Feed siap: $FEED_URL"$'\n\n'"JSON Feed: $FEED_JSON"$'\n\n'"Diperbarui otomatis setiap 30 menit. Daftar semua feed: https://sietekmalut.github.io/rss-anywhere/"
+          else
+            body="Tidak ada URL http(s) yang bisa dipakai di issue ini."
+          fi
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "$body"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

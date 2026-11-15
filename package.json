@@ -1,0 +1,28 @@
+{
+  "name": "rss-anywhere",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Buat link feed RSS dari website mana pun. Jalan di Cloudflare Workers / Vercel, bukan localhost.",
+  "scripts": {
+    "dev": "node src/server.js",
+    "dev:vercel": "node scripts/vercel-dev.mjs",
+    "build:pages": "node scripts/build-static.mjs",
+    "dev:pages": "node scripts/serve-dist.mjs",
+    "start": "node src/server.js",
+    "test": "node scripts/unit-test.mjs",
+    "test:api": "node scripts/api-test.mjs",
+    "test:smoke": "node scripts/smoke-test.mjs",
+    "bench": "node scripts/bench.mjs",
+    "deploy": "wrangler deploy",
+    "deploy:vercel": "npx vercel deploy --prod",
+    "deploy:dry": "wrangler deploy --dry-run --outdir=.wrangler/dry",
+    "tail": "wrangler tail"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

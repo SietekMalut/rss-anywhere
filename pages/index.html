@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>RSS Anywhere — feed RSS publik dari website mana pun</title>
+  <meta name="description" content="Ubah halaman website apa pun menjadi link feed RSS publik. Dibuat otomatis oleh GitHub Actions, disajikan GitHub Pages, diperbarui tiap 30 menit.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23080b10'/><circle cx='30' cy='30' r='9' fill='%23ff7a18'/><path d='M30 46a24 24 0 0 1 24 24M30 62a8 8 0 0 1 8 8' stroke='%23ff7a18' stroke-width='7' fill='none' stroke-linecap='round'/></svg>">
+</head>
+<body>
+  <div class="glow"></div>
+
+  <header class="wrap head">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <h1>RSS Anywhere</h1>
+        <p class="tagline">Link feed RSS publik dari website mana pun. Dibuat oleh GitHub Actions, disajikan GitHub Pages — komputer Anda tidak perlu menyala.</p>
+      </div>
+    </div>
+    <a class="chip" id="repo-link" target="_blank" rel="noreferrer">Repositori ↗</a>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <form id="add-form" autocomplete="off">
+        <label for="url">URL WEBSITE ATAU HALAMAN</label>
+        <div class="row">
+          <input id="url" type="text" inputmode="url" spellcheck="false" placeholder="contoh.com/berita atau https://contoh.com/blog">
+          <button class="primary" type="submit">Buat link feed</button>
+        </div>
+        <p class="hint">
+          Link dibuat otomatis dalam ±1 menit lewat GitHub Issue. Setelah jadi, linknya permanen dan diperbarui tiap 30 menit.
+        </p>
+      </form>
+
+      <div id="match" class="match hidden"></div>
+      <div id="next" class="next hidden"></div>
+    </section>
+
+    <section class="card" id="list-card">
+      <div class="list-head">
+        <h2>Feed siap pakai <span id="count" class="pill">0</span></h2>
+        <input id="search" type="search" placeholder="Cari judul atau domain" aria-label="Cari feed">
+      </div>
+      <ul id="feeds" class="feeds"></ul>
+      <p id="empty" class="empty">Belum ada feed. Tambahkan URL di atas.</p>
+      <p class="hint" id="updated"></p>
+    </section>
+
+    <section class="card docs">
+      <h2>Cara pakai</h2>
+      <ol class="steps">
+        <li>Tempel URL halaman (beranda, kategori, atau blog) lalu klik <strong>Buat link feed</strong>.</li>
+        <li>GitHub terbuka dengan issue yang sudah terisi — klik <strong>Submit new issue</strong>.</li>
+        <li>Tunggu ±1 menit, lalu salin link feed dari daftar di halaman ini (atau dari komentar di issue).</li>
+        <li>Tempel link ke pembaca RSS: Feedly, Inoreader, FreshRSS, NetNewsWire, Reeder, Thunderbird, dsb.</li>
+      </ol>
+
+      <h2>Bagaimana ia bekerja</h2>
+      <p class="muted">
+        GitHub Actions mengambil halaman dari sisi server, mendeteksi feed asli
+        (<code>&lt;link rel="alternate"&gt;</code>), lalu path umum (<code>/feed</code>, <code>/rss.xml</code>, <code>/atom.xml</code>).
+        Kalau tidak ada, daftar artikel diekstrak dari HTML, dan <code>sitemap.xml</code> dipakai sebagai jalan terakhir.
+        Hasilnya disimpan sebagai file XML statis di GitHub Pages dan diperbarui tiap 30 menit.
+      </p>
+
+      <h2>Batasan</h2>
+      <ul class="limits">
+        <li>Menambah feed baru butuh <strong>login GitHub</strong> (hanya pemilik repositori yang diproses).</li>
+        <li>Isi feed diperbarui tiap <strong>30 menit</strong>, bukan real-time.</li>
+        <li>Konten di balik login atau yang dirender JavaScript tidak bisa diambil.</li>
+        <li>Situs dengan proteksi bot bisa menolak (403/405/429). Feed lama tetap tersedia.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>RSS Anywhere · GitHub Pages + Actions · tanpa server sendiri</span>
+    <span class="muted tiny" id="stamp"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

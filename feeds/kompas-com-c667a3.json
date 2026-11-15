@@ -1,0 +1,173 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "KOMPAS.com",
+  "home_page_url": "https://www.kompas.com/",
+  "feed_url": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
+  "description": "Kompas.com - Berita Indonesia dan Dunia Terkini Hari Ini, Kabar Harian Terbaru Terpercaya Terlengkap Seputar Politik, Ekonomi, Travel, Teknologi, Otomotif, Bola",
+  "language": "en",
+  "icon": "https://asset.kompas.com/data/2017/wp/images/favicon2017.ico",
+  "favicon": "https://asset.kompas.com/data/2017/wp/images/favicon2017.ico",
+  "authors": [
+    {
+      "name": "KOMPAS.com"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://regional.kompas.com/read/2026/11/15/091200178/dilaporkan-atas-dugaan-kekerasan-seksual-bupati-kupang-yosef-lede-serahkan?source=headline",
+      "url": "https://regional.kompas.com/read/2026/11/15/091200178/dilaporkan-atas-dugaan-kekerasan-seksual-bupati-kupang-yosef-lede-serahkan?source=headline",
+      "title": "Headline Dilaporkan atas Dugaan Kekerasan Seksual, Bupati Kupang Yosef Lede Serahkan Penanganan ke Polisi",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/4R56Km_89gkCaoSFHrTki3-DF_I=/12x15:740x500/740x400/data/photo/2026/01/08/695f17c454fb9.jpg"
+    },
+    {
+      "id": "https://yogyakarta.kompas.com/read/2026/11/15/074439478/propam-polda-diy-periksa-11-polisi-pascakericuhan-demo-pada-10-november?source=headline",
+      "url": "https://yogyakarta.kompas.com/read/2026/11/15/074439478/propam-polda-diy-periksa-11-polisi-pascakericuhan-demo-pada-10-november?source=headline",
+      "title": "Propam Polda DIY Periksa 11 Polisi Pascakericuhan Demo pada 10 November 2026",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/8GCHGHQuqCgrCnzktLXWyIDMf_g=/0x0:0x0/740x400/data/photo/2026/11/10/6af31ab75b717.jpg"
+    },
+    {
+      "id": "https://money.kompas.com/read/2026/11/15/081800026/aturan-baru-2027-perusahaan-wajib-setor-dana-cadangan-pesangon-ke-pemerintah?source=headline",
+      "url": "https://money.kompas.com/read/2026/11/15/081800026/aturan-baru-2027-perusahaan-wajib-setor-dana-cadangan-pesangon-ke-pemerintah?source=headline",
+      "title": "Aturan Baru 2027, Perusahaan Wajib Setor Dana Cadangan Pesangon ke Pemerintah",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/27hXjFhPZNg2EG5v6nXpkzqS1is=/0x13:612x421/740x400/data/photo/2024/02/09/65c5cecb352c3.jpeg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/07484601/bupati-kupang-kader-gerindra-habiburokhman-janji-pecat-jika-terbukti-perkosa?source=headline",
+      "url": "https://nasional.kompas.com/read/2026/11/15/07484601/bupati-kupang-kader-gerindra-habiburokhman-janji-pecat-jika-terbukti-perkosa?source=headline",
+      "title": "Bupati Kupang Kader Gerindra, Habiburokhman Janji Pecat jika Terbukti Perkosa Mahasiswi",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/CjosDeZqxsFXOZAnNPl_MRRtwQg=/280x82:1360x802/740x400/data/photo/2026/11/05/6aec07012e097.jpg"
+    },
+    {
+      "id": "https://money.kompas.com/read/2026/11/15/082134926/petisi-kembalikan-jensen-huang-jadi-ceo-nvidia-tembus-108000?source=headline",
+      "url": "https://money.kompas.com/read/2026/11/15/082134926/petisi-kembalikan-jensen-huang-jadi-ceo-nvidia-tembus-108000?source=headline",
+      "title": "Petisi Kembalikan Jensen Huang Jadi CEO Nvidia Tembus 108.000",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/8wReiQSB3lNSw1UGAVJd8NbDOzU=/0x118:2000x1451/740x400/data/photo/2026/11/12/6af5ce397351d.jpg"
+    },
+    {
+      "id": "https://money.kompas.com/read/2026/11/15/093909226/bsu-2026-kenapa-belum-cair-ini-penjelasan-terbaru-kemnaker?source=headline",
+      "url": "https://money.kompas.com/read/2026/11/15/093909226/bsu-2026-kenapa-belum-cair-ini-penjelasan-terbaru-kemnaker?source=headline",
+      "title": "BSU 2026 Kenapa Belum Cair? Ini Penjelasan Terbaru Kemnaker",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/2xZ7pD0Aw8E6Kt6K6Debn2eY-AU=/0x0:1217x811/740x400/data/photo/2026/11/05/6aebe5f2df9a0.png"
+    },
+    {
+      "id": "https://megapolitan.kompas.com/read/2026/11/15/09212201/stasiun-lrt-di-manggarai-sempat-blackout-bagaimana-kondisi-perjalanannya?source=headline",
+      "url": "https://megapolitan.kompas.com/read/2026/11/15/09212201/stasiun-lrt-di-manggarai-sempat-blackout-bagaimana-kondisi-perjalanannya?source=headline",
+      "title": "Stasiun LRT di Manggarai Sempat Blackout, Bagaimana Kondisi Perjalanannya Kini?",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/jmTczDoiQNccEyE7J0RVnbaB0YM=/0x0:0x0/740x400/data/photo/2026/11/14/6af887cdf03c9.jpg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/08231351/semobil-dengan-teddy-prabowo-hadiri-pembukaan-ktt-ke-49-asean-di-filipina?source=terpopuler",
+      "url": "https://nasional.kompas.com/read/2026/11/15/08231351/semobil-dengan-teddy-prabowo-hadiri-pembukaan-ktt-ke-49-asean-di-filipina?source=terpopuler",
+      "title": "Semobil dengan Teddy, Prabowo Hadiri Pembukaan KTT ke-49 ASEAN di Filipina",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "id": "https://entertainment.kompas.com/read/2026/11/15/075557366/felicia-tissue-resmi-menikah-dengan-kevin?source=terpopuler",
+      "url": "https://entertainment.kompas.com/read/2026/11/15/075557366/felicia-tissue-resmi-menikah-dengan-kevin?source=terpopuler",
+      "title": "Felicia Tissue Resmi Menikah dengan Kevin",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "id": "https://otomotif.kompas.com/read/2026/11/15/080100515/yamaha-indonesia--aldi-satya-masuk-top-of-the-list-naik-ke-moto2?source=terpopuler",
+      "url": "https://otomotif.kompas.com/read/2026/11/15/080100515/yamaha-indonesia--aldi-satya-masuk-top-of-the-list-naik-ke-moto2?source=terpopuler",
+      "title": "Yamaha Indonesia: Aldi Satya Masuk Top of the List Naik ke Moto2",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/07500071/gibran-dan-republik-yang-lupa-mengunci-pintu?source=terpopuler",
+      "url": "https://nasional.kompas.com/read/2026/11/15/07500071/gibran-dan-republik-yang-lupa-mengunci-pintu?source=terpopuler",
+      "title": "Gibran dan Republik yang Lupa Mengunci Pintu",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "id": "https://bola.kompas.com/read/2026/11/15/07585508/persib-kena-sanksi-pssi-igor-tolic-pastikan-seleksi-dokter-tim-baru?source=sorotan",
+      "url": "https://bola.kompas.com/read/2026/11/15/07585508/persib-kena-sanksi-pssi-igor-tolic-pastikan-seleksi-dokter-tim-baru?source=sorotan",
+      "title": "Persib Kena Sanksi PSSI, Igor Tolic Pastikan Seleksi Dokter Tim Baru",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/BIhPOOcqm_qBtlhJqImZl6-Rxxk=/0x0:2048x1365/740x400/data/photo/2026/08/31/6a959759da078.jpeg"
+    },
+    {
+      "id": "https://travel.kompas.com/read/2026/11/15/080000027/10-rute-penerbangan-tersibuk-dunia-salah-satunya-ada-di-indonesia?source=sorotan",
+      "url": "https://travel.kompas.com/read/2026/11/15/080000027/10-rute-penerbangan-tersibuk-dunia-salah-satunya-ada-di-indonesia?source=sorotan",
+      "title": "10 Rute Penerbangan Tersibuk Dunia, Salah Satunya Ada di Indonesia",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/jVE4Bs_bhTuDzLvkuaiYOFTo7bQ=/139x0:1759x1080/740x400/data/photo/2026/08/19/6a85392d3f262.jpg"
+    },
+    {
+      "id": "https://internasional.kompas.com/read/2026/11/15/092706070/outlook-dan-teams-mulai-pulih-microsoft-minta-maaf-sedalam-dalamnya?source=sorotan",
+      "url": "https://internasional.kompas.com/read/2026/11/15/092706070/outlook-dan-teams-mulai-pulih-microsoft-minta-maaf-sedalam-dalamnya?source=sorotan",
+      "title": "Outlook dan Teams Mulai Pulih, Microsoft Minta Maaf Sedalam-dalamnya",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/EYDHNPPZ3rXgsZWmdjwIzUCGl8c=/0x0:1280x853/740x400/data/photo/2026/11/14/6af7934414844.jpeg"
+    },
+    {
+      "id": "https://event.kompas.com/langkahemasbsi/coffee-drive-ev-hybrid-experience-yogyakarta?bsi_homepage_widget",
+      "url": "https://event.kompas.com/langkahemasbsi/coffee-drive-ev-hybrid-experience-yogyakarta?bsi_homepage_widget",
+      "title": "Lihat Info Selengkapnya!",
+      "content_text": "",
+      "date_published": "2026-11-14T10:00:00.000Z",
+      "image": "https://asset.kompas.com/data/photo/2026/11/04/6aeadad1afaa7.jpg"
+    },
+    {
+      "id": "https://www.kompas.com/tren/read/2026/11/15/093200765/gibran-dan-sebuah-refleksi-spiritual-parenting?source=kolom",
+      "url": "https://www.kompas.com/tren/read/2026/11/15/093200765/gibran-dan-sebuah-refleksi-spiritual-parenting?source=kolom",
+      "title": "Gibran dan Sebuah Refleksi Spiritual Parenting",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/pPceVqrLXW9xylypCl6ddFzVTQI=/0x0:1200x800/740x400/data/photo/2026/11/12/6af5c6d1b785f.jpg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/08400021/jerat-pemerasan-berkedok-polisi?source=kolom",
+      "url": "https://nasional.kompas.com/read/2026/11/15/08400021/jerat-pemerasan-berkedok-polisi?source=kolom",
+      "title": "Jerat Pemerasan Berkedok Polisi",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/lJYCx8U7WaGS89sUD-DAkD1TeSI=/0x0:1200x800/740x400/data/photo/2026/06/10/6a28a6f2cfc2b.jpg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/07000081/dalang-di-balik-penyadapan-terhadap-presiden?source=kolom",
+      "url": "https://nasional.kompas.com/read/2026/11/15/07000081/dalang-di-balik-penyadapan-terhadap-presiden?source=kolom",
+      "title": "Dalang di Balik Penyadapan terhadap Presiden",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/2EScpzg8cvomRyLd02s388J8cm8=/68x0:1376x872/740x400/data/photo/2026/11/09/6af0f61e24cfb.jpg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/06300001/mencari-wapres-bertipe-hatta--keluar-dari-jebakan-kalkulasi-politik?source=kolom",
+      "url": "https://nasional.kompas.com/read/2026/11/15/06300001/mencari-wapres-bertipe-hatta--keluar-dari-jebakan-kalkulasi-politik?source=kolom",
+      "title": "Mencari Wapres Bertipe Hatta: Keluar dari Jebakan Kalkulasi Politik",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/d98ycutmEvWT8Zpv0ZFn4PCLBdI=/0x0:4662x3108/740x400/data/photo/2026/11/11/6af3dc80cb09f.jpg"
+    },
+    {
+      "id": "https://nasional.kompas.com/read/2026/11/15/05450081/nalar-hak-pensiun-wapres-gibran?source=kolom",
+      "url": "https://nasional.kompas.com/read/2026/11/15/05450081/nalar-hak-pensiun-wapres-gibran?source=kolom",
+      "title": "Nalar Hak Pensiun Wapres Gibran",
+      "content_text": "",
+      "date_published": "2026-11-15T00:00:00.000Z",
+      "image": "https://asset.kompas.com/crops/wpqzkgN3DpjWB9nxTtGd39HO9MA=/375x22:4374x2688/740x400/data/photo/2026/11/11/6af3bcc56699b.jpg"
+    }
+  ]
+}

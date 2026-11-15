@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSS Anywhere — ubah website apa pun jadi feed RSS</title>
+<meta name="description" content="Buat link feed RSS dari halaman website mana pun. Gratis, online 24 jam, tanpa install aplikasi.">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff7a18'/%3E%3Ccircle cx='10' cy='22' r='2.6' fill='%230b0f14'/%3E%3Cpath d='M8 14a10 10 0 0 1 10 10' stroke='%230b0f14' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 8a16 16 0 0 1 16 16' stroke='%230b0f14' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="wrap head">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="20" height="20"><circle cx="10" cy="22" r="2.6" fill="currentColor"/><path d="M8 14a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M8 8a16 16 0 0 1 16 16" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>
+    </span>
+    <div>
+      <h1>RSS Anywhere</h1>
+      <p class="sub">Ubah halaman website apa pun menjadi feed RSS — gratis, online 24 jam.</p>
+    </div>
+  </div>
+  <a class="ghost" href="/feed?url=https://github.blog" target="_blank" rel="noreferrer">Coba endpoint ↗</a>
+</header>
+
+<main class="wrap">
+  <section class="card" id="form-card">
+    <form id="feed-form" autocomplete="off">
+      <label class="field">
+        <span class="label">URL website atau halaman</span>
+        <div class="input-row">
+          <input id="url" type="text" inputmode="url" spellcheck="false"
+                 placeholder="https://contoh.com/berita" aria-label="URL website" required>
+          <button type="submit" class="primary" id="submit-btn">
+            <span class="btn-label">Buat Feed</span>
+          </button>
+        </div>
+      </label>
+
+      <div class="examples" id="examples">
+        <span class="tiny muted">Contoh:</span>
+        <button type="button" data-url="https://github.blog">github.blog</button>
+        <button type="button" data-url="https://www.theverge.com">theverge.com</button>
+        <button type="button" data-url="https://blog.cloudflare.com">blog.cloudflare.com</button>
+        <button type="button" data-url="https://www.kompas.com">kompas.com</button>
+      </div>
+
+      <details class="advanced" id="advanced">
+        <summary>Opsi lanjutan</summary>
+        <div class="grid">
+          <label class="field small">
+            <span class="label">Jumlah item</span>
+            <input id="limit" type="number" min="1" max="100" value="20">
+          </label>
+          <label class="field small">
+            <span class="label">Cache (detik)</span>
+            <input id="ttl" type="number" min="60" max="86400" step="60" value="900">
+          </label>
+          <label class="field small grow">
+            <span class="label">Filter link/judul (opsional)</span>
+            <input id="filter" type="text" placeholder="/berita/ atau kata kunci">
+          </label>
+          <label class="field small">
+            <span class="label">Mode</span>
+            <select id="mode">
+              <option value="auto">auto (disarankan)</option>
+              <option value="html">html — paksa ekstrak</option>
+              <option value="feed">feed — URL sudah feed</option>
+            </select>
+          </label>
+        </div>
+      </details>
+    </form>
+  </section>
+
+  <section id="status" class="card status hidden" aria-live="polite"></section>
+
+  <section id="result" class="hidden">
+    <div class="card result-card">
+      <div class="result-head">
+        <div class="result-title">
+          <span class="dot" id="source-dot"></span>
+          <div>
+            <strong id="result-title">Feed siap</strong>
+            <p class="tiny muted" id="result-meta"></p>
+          </div>
+        </div>
+        <div class="badges" id="badges"></div>
+      </div>
+
+      <label class="field">
+        <span class="label">Link feed permanen</span>
+        <div class="input-row">
+          <input id="feed-url" type="text" readonly spellcheck="false" aria-label="Link feed permanen">
+          <button type="button" class="primary" id="copy-btn">Salin</button>
+        </div>
+      </label>
+
+      <div class="actions">
+        <a id="open-xml" class="chip" target="_blank" rel="noreferrer">Buka XML</a>
+        <a id="add-feedly" class="chip" target="_blank" rel="noreferrer">Tambah ke Feedly</a>
+        <a id="add-inoreader" class="chip" target="_blank" rel="noreferrer">Inoreader</a>
+        <a id="open-json" class="chip" target="_blank" rel="noreferrer">JSON Feed</a>
+        <button type="button" class="chip" id="copy-md">Salin Markdown</button>
+      </div>
+
+      <ul class="warnings hidden" id="warnings"></ul>
+    </div>
+
+    <div class="card">
+      <div class="list-head">
+        <strong>Pratinjau isi feed</strong>
+        <span class="tiny muted" id="preview-count"></span>
+      </div>
+      <ol class="items" id="items"></ol>
+    </div>
+  </section>
+
+  <section class="card history hidden" id="history-card">
+    <div class="list-head">
+      <strong>Riwayat di browser ini</strong>
+      <button type="button" class="linkbtn" id="clear-history">Hapus</button>
+    </div>
+    <div class="history-list" id="history"></div>
+  </section>
+
+  <section class="card docs">
+    <h2>Cara pakai</h2>
+    <ol class="steps">
+      <li>Tempel URL halaman (beranda, kategori, atau blog) lalu klik <strong>Buat Feed</strong>.</li>
+      <li>Salin <strong>link feed permanen</strong> yang muncul.</li>
+      <li>Tempel ke aplikasi pembaca RSS apa pun: Feedly, Inoreader, FreshRSS, NetNewsWire, Reeder, Thunderbird, dsb.</li>
+      <li>Link itu bisa dibuka dari perangkat mana pun — server yang menjalankannya bukan komputer Anda.</li>
+    </ol>
+
+    <h2>Parameter endpoint</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parameter</th><th>Nilai</th><th>Keterangan</th></tr></thead>
+        <tbody>
+          <tr><td><code>url</code></td><td>wajib</td><td>Halaman atau feed yang mau diubah.</td></tr>
+          <tr><td><code>limit</code></td><td>1–100 (20)</td><td>Jumlah item. Diabaikan untuk feed asli (dipassthrough).</td></tr>
+          <tr><td><code>ttl</code></td><td>60–86400 (900)</td><td>Berapa detik hasil disimpan di cache edge.</td></tr>
+          <tr><td><code>filter</code></td><td>teks</td><td>Hanya ambil item yang URL/judulnya mengandung teks ini.</td></tr>
+          <tr><td><code>mode</code></td><td>auto / html / feed</td><td><code>html</code> = paksa ekstraksi, <code>feed</code> = wajib feed asli.</td></tr>
+          <tr><td><code>nocache</code></td><td>1</td><td>Lewati cache (berguna saat menyetel selector).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Bagaimana ia bekerja</h2>
+    <p class="muted small">
+      Server mengambil halaman dari sisi server (jadi tidak kena batasan CORS), lalu berurutan:
+      (1) mendeteksi feed asli lewat <code>&lt;link rel="alternate"&gt;</code>,
+      (2) mencoba path umum seperti <code>/feed</code>, <code>/rss.xml</code>, <code>/atom.xml</code>,
+      (3) mengekstrak daftar artikel dari HTML (heading, anchor, tanggal, JSON-LD),
+      (4) memakai <code>sitemap.xml</code> sebagai jalan terakhir.
+      Hasilnya disimpan di cache edge supaya cepat dan hemat.
+    </p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>RSS Anywhere · dibuat untuk dipakai, bukan untuk di-install.</span>
+  <span class="muted tiny">Tidak menyimpan data Anda. Cache hanya berisi HTML publik yang sedang diambil.</span>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

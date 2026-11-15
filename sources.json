@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {
+      "url": "https://github.blog",
+      "limit": 20,
+      "filter": "",
+      "mode": "auto",
+      "addedAt": "2026-11-15T00:00:00.000Z"
+    },
+    {
+      "url": "https://www.kompas.com",
+      "limit": 20,
+      "filter": "",
+      "mode": "auto",
+      "addedAt": "2026-11-15T00:00:00.000Z"
+    }
+  ]
+}

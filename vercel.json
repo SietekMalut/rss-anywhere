@@ -1,0 +1,34 @@
+{
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/feed", "destination": "/api/feed" },
+    { "source": "/rss", "destination": "/api/feed" },
+    { "source": "/feed.xml", "destination": "/api/feed" },
+    { "source": "/rss.xml", "destination": "/api/feed" },
+    { "source": "/feed.json", "destination": "/api/feed-json" },
+    { "source": "/rss.json", "destination": "/api/feed-json" },
+    { "source": "/preview", "destination": "/api/preview" },
+    { "source": "/healthz", "destination": "/api/healthz" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/feed",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, HEAD, OPTIONS" }
+      ]
+    },
+    {
+      "source": "/feed.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, HEAD, OPTIONS" }
+      ]
+    }
+  ]
+}
