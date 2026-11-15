@@ -101,6 +101,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:54:01.873Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.radarmalut.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:59:51.214Z",
+      "addedBy": "issue"
     }
   ]
 }
