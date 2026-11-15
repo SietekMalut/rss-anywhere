@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-15T03:10:09.075Z",
+  "generatedAt": "2026-11-15T03:13:55.200Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
   "ok": 3,
-  "failed": 0,
+  "failed": 1,
   "feeds": [
     {
       "id": "github-blog-d9c39a",
@@ -13,21 +13,21 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:10:03.268Z",
-      "elapsedMs": 130,
+      "updatedAt": "2026-11-15T03:13:51.148Z",
+      "elapsedMs": 421,
       "error": null
     },
     {
       "id": "kompas-com-c667a3",
       "url": "https://www.kompas.com",
-      "title": "KOMPAS.com",
+      "title": "kompas.com",
       "siteUrl": "https://www.kompas.com/",
-      "count": 20,
+      "count": 0,
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:10:05.231Z",
-      "elapsedMs": 1963,
+      "updatedAt": "2026-11-15T03:13:51.392Z",
+      "elapsedMs": 244,
       "error": null
     },
     {
@@ -39,9 +39,22 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "updatedAt": "2026-11-15T03:10:09.075Z",
-      "elapsedMs": 3843,
+      "updatedAt": "2026-11-15T03:13:54.667Z",
+      "elapsedMs": 3275,
       "error": null
+    },
+    {
+      "id": "facebook-com-groups-544631122914182-1de8d5",
+      "url": "https://www.facebook.com/groups/544631122914182/",
+      "title": "www.facebook.com",
+      "siteUrl": "https://www.facebook.com/groups/544631122914182/",
+      "count": 0,
+      "source": "error",
+      "feedUrl": null,
+      "jsonUrl": null,
+      "updatedAt": "2026-11-15T03:13:55.200Z",
+      "elapsedMs": 533,
+      "error": "Sumber membalas HTTP 400."
     }
   ]
 }
