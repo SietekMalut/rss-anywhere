@@ -77,6 +77,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:42:37.700Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.malutline.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:46:29.586Z",
+      "addedBy": "issue"
     }
   ]
 }
