@@ -37,6 +37,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T03:18:45.085Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.cermat.co.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-15T03:23:10.481Z",
+      "addedBy": "issue"
     }
   ]
 }

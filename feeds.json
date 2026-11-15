@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T03:19:20.771Z",
+  "generatedAt": "2026-11-15T03:23:54.580Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
-  "ok": 4,
+  "ok": 5,
   "failed": 1,
   "feeds": [
     {
@@ -13,8 +13,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
-      "updatedAt": "2026-11-15T03:18:45.305Z",
-      "elapsedMs": 173,
+      "updatedAt": "2026-11-15T03:23:10.847Z",
+      "elapsedMs": 320,
       "error": null
     },
     {
@@ -26,8 +26,8 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "updatedAt": "2026-11-15T03:18:48.043Z",
-      "elapsedMs": 2738,
+      "updatedAt": "2026-11-15T03:23:16.655Z",
+      "elapsedMs": 5808,
       "error": null
     },
     {
@@ -39,8 +39,8 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "updatedAt": "2026-11-15T03:18:50.731Z",
-      "elapsedMs": 2688,
+      "updatedAt": "2026-11-15T03:23:19.910Z",
+      "elapsedMs": 3255,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "source": "error",
       "feedUrl": null,
       "jsonUrl": null,
-      "updatedAt": "2026-11-15T03:18:51.256Z",
-      "elapsedMs": 525,
+      "updatedAt": "2026-11-15T03:23:20.630Z",
+      "elapsedMs": 720,
       "error": "Sumber membalas HTTP 400."
     },
     {
@@ -65,8 +65,21 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/haliyora-id-2a0aa7.json",
-      "updatedAt": "2026-11-15T03:19:20.771Z",
-      "elapsedMs": 29515,
+      "updatedAt": "2026-11-15T03:23:51.318Z",
+      "elapsedMs": 30688,
+      "error": null
+    },
+    {
+      "id": "cermat-co-id-d197d4",
+      "url": "https://www.cermat.co.id/",
+      "title": "cermat",
+      "siteUrl": "https://www.cermat.co.id/",
+      "count": 10,
+      "source": "native",
+      "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.xml",
+      "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.json",
+      "updatedAt": "2026-11-15T03:23:54.580Z",
+      "elapsedMs": 3262,
       "error": null
     }
   ]
