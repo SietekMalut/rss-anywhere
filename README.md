@@ -138,6 +138,18 @@ Start-Process https://sietekmalut.github.io/rss-anywhere/
 - **Kuota gratis:** repo publik = menit Actions tanpa batas, bandwidth Pages 100 GB/bulan.
 - **Ganti nama repo?** Ubah `SITE_BASE` di `.github/workflows/feeds.yml` dan fallback `REPO_FALLBACK` di `pages/app.js`.
 
+### Shortcut desktop
+
+Untuk membuka situs tanpa mengetik URL, jalankan sekali:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\make-shortcut.ps1
+```
+
+Skrip itu membuat `RSS Anywhere.lnk` di Desktop beserta ikon khusus
+(`%LOCALAPPDATA%\RSS Anywhere\rss-anywhere-v2.ico`). Shortcut mengarah ke situs live,
+jadi selalu terbuka di browser default dan tidak butuh server lokal.
+
 ---
 
 ## 6. Opsi: menjalankan sebagai server sendiri
