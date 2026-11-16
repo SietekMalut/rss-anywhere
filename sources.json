@@ -165,6 +165,14 @@
       "mode": "auto",
       "addedAt": "2026-11-15T10:32:32.070Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://salawaku.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T00:27:28.124Z",
+      "addedBy": "issue"
     }
   ]
 }
