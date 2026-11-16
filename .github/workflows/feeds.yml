@@ -2,9 +2,9 @@ name: Feed builder
 
 # Membangun semua feed di sources.json, lalu menerbitkannya ke GitHub Pages.
 #
-# Alur cepat untuk link baru (issue):
-#   issue -> hanya feed baru yang dibangun, sisanya disalin dari versi tayang
-#         -> deploy -> link diverifikasi HTTP 200 + XML valid -> baru dibalas.
+# Alur untuk link baru (issue):
+#   issue -> sumber ditambahkan -> build paralel (~15 detik) -> deploy
+#         -> link diverifikasi HTTP 200 + XML valid -> baru dibalas.
 #
 # - cron: refresh tiap 30 menit
 # - workflow_dispatch: tombol "Run workflow" manual
@@ -69,8 +69,7 @@ jobs:
       - name: Bangun feed
         id: build
         env:
-          BUILD_CONCURRENCY: '8'
-          ONLY_IDS: ${{ steps.issue.outputs.feed_id }}
+          BUILD_CONCURRENCY: '12'
         run: node scripts/build-static.mjs
 
       - name: Periksa validitas hasil build

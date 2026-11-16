@@ -5,10 +5,9 @@
  *   sources.json  ->  feeds/<id>.xml + feeds/<id>.json + feeds.json
  *                 ->  dist/ (siap di-upload sebagai artefak GitHub Pages)
  *
- * Cepat:
- *   - sumber diambil paralel (BUILD_CONCURRENCY, default 8)
- *   - ONLY_IDS=<id> membangun hanya feed itu; sisanya disalin dari situs yang
- *     sedang tayang. Dipakai saat issue baru supaya tidak menunggu 30 sumber.
+ * Cepat: sumber diambil paralel (BUILD_CONCURRENCY, default 8), jadi total waktu
+ * mengikuti sumber terlama — bukan jumlah semua sumber. Karena itu build penuh
+ * lebih cepat daripada menyalin feed lama satu per satu dari situs yang tayang.
  *
  * Valid: setiap dokumen diperiksa dengan src/validate.js sebelum ditulis.
  * Kalau XML asli dari situs ternyata tidak well-formed (mis. berisi &nbsp;
@@ -41,9 +40,6 @@ const SITE_BASE = (process.env.SITE_BASE || 'https://sietekmalut.github.io/rss-a
 const TTL_SECONDS = 1800;
 const DEFAULT_LIMIT = 20;
 const CONCURRENCY = clampInt(process.env.BUILD_CONCURRENCY, 8, 1, 24);
-const ONLY_IDS = new Set(
-  String(process.env.ONLY_IDS || '').split(',').map((s) => s.trim()).filter(Boolean),
-);
 
 const abs = (p) => SITE_BASE + p;
 
@@ -267,20 +263,10 @@ async function main() {
     return { source, id, url };
   });
 
-  const fastPath = ONLY_IDS.size > 0 && jobs.length > 1;
-  console.log(
-    `[build] ${jobs.length} sumber, paralel ${CONCURRENCY}, `
-    + (fastPath ? `mode cepat (hanya ${[...ONLY_IDS].join(', ')}), ` : '')
-    + SITE_BASE,
-  );
+  console.log(`[build] ${jobs.length} sumber, paralel ${CONCURRENCY}, ${SITE_BASE}`);
 
   const results = await mapPool(jobs, CONCURRENCY, async (job) => {
     if (!job.id) return { skip: true, log: `  skip  ${job.url} (URL tidak valid)` };
-    if (fastPath && !ONLY_IDS.has(job.id)) {
-      const carried = await copyPublished(job.id, job.url, previousById.get(job.id), startedAt);
-      if (carried) return carried;
-      // Gagal menyalin: bangun seperti biasa supaya tidak ada yang hilang.
-    }
     return buildOne(job.source, previousById);
   });
 

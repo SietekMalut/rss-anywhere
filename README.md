@@ -14,7 +14,7 @@ https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml
 - **Gratis**, tanpa server, tanpa database.
 - **Permanen** — ID feed dihitung dari URL, jadi linknya tidak berubah.
 - **Diperbarui otomatis** tiap 30 menit oleh GitHub Actions.
-- **Cepat** — link bisa dihitung langsung di browser (muncul seketika), dan build feed baru hanya memproses sumber baru (sisanya disalin dari versi tayang) ±2 detik.
+- **Cepat** — link bisa dihitung langsung di browser (muncul seketika), dan build feed berjalan paralel (12 sumber sekaligus) sehingga selesai dalam ±15 detik.
 - **Dijamin valid** — setiap dokumen diperiksa (well-formed XML, RSS/Atom, JSON Feed) sebelum diterbitkan; link hanya diumumkan setelah lolos verifikasi HTTP 200 + ada item.
 - **Dua format**: RSS 2.0 (`feeds/<id>.xml`) dan JSON Feed 1.1 (`feeds/<id>.json`).
 - **Tanpa dependensi runtime** — mesinnya hanya memakai Web API standar (`fetch`, `TextDecoder`, `AbortController`).
@@ -84,7 +84,7 @@ Urutan deteksi per sumber:
 
 Pengaman: SSRF guard (localhost/IP privat/endpoint metadata ditolak, redirect divalidasi), batas ukuran 3 MB, timeout 10 detik per pengambilan.
 
-Kecepatan: sumber diambil **paralel** (`BUILD_CONCURRENCY`, default 8), jadi total waktu mengikuti sumber terlama — bukan jumlah semua sumber. Untuk issue baru, `ONLY_IDS` membuat build hanya memproses feed baru dan menyalin sisanya dari versi tayang (±2 detik).
+Kecepatan: sumber diambil **paralel** (`BUILD_CONCURRENCY`, default 8; workflow memakai 12), jadi total waktu mengikuti sumber terlama — bukan jumlah semua sumber. 30 sumber selesai dalam ±15 detik.
 
 Validitas: setiap dokumen diperiksa `src/validate.js` sebelum ditulis. Kalau XML asli dari situs ternyata tidak well-formed (mis. memuat `&nbsp;` tanpa deklarasi entity), feed **dirender ulang** dari item hasil parsing. Setelah deploy, `verify-live` memastikan tiap link benar-benar HTTP 200 + valid + berisi item.
 
@@ -121,12 +121,6 @@ node scripts/unit-test.mjs       # 27 tes parser, renderer & validator
 node scripts/verify-live.mjs --dist          # pastikan berkas hasil build valid (tanpa jaringan)
 node scripts/verify-live.mjs --all --wait 30 # cek semua link yang tayang
 node scripts/bench.mjs           # kecepatan parse
-```
-
-Build hanya sebagian (jalur cepat, dipakai saat issue baru):
-
-```powershell
-$env:ONLY_IDS="kompas-com-c667a3"; node scripts/build-static.mjs
 ```
 
 Untuk mencoba alur issue tanpa menunggu GitHub:
