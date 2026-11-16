@@ -197,6 +197,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T00:39:19.754Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://sidikkasus.co.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T01:13:26.108Z",
+      "addedBy": "issue"
     }
   ]
 }
