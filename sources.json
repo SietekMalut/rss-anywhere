@@ -205,6 +205,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T01:13:26.108Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://infopulau.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T02:08:36.537Z",
+      "addedBy": "issue"
     }
   ]
 }
