@@ -90,15 +90,19 @@ async function main() {
   }
   if (!Array.isArray(doc.sources)) doc.sources = [];
 
-  const id = feedId(key);
+  const existing = doc.sources.find((s) => canonical(String(s.url || '')) === key);
+
+  // Kalau URL sudah terdaftar, pakai ID dari URL yang BENAR-BENAR dibangun.
+  // build-static memakai s.url apa adanya, jadi ID harus dihitung dari string
+  // yang sama — kalau tidak, link yang diumumkan bisa menunjuk file yang tak ada.
+  const id = feedId(existing ? String(existing.url) : key);
   await out('feed_id', id);
   await out('feed_url', SITE_BASE + 'feeds/' + id + '.xml');
   await out('feed_json', SITE_BASE + 'feeds/' + id + '.json');
 
-  const exists = doc.sources.some((s) => canonical(String(s.url || '')) === key);
-  if (exists) {
+  if (existing) {
     await out('duplicate', 'true');
-    console.log('[issue] sudah terdaftar: ' + key);
+    console.log('[issue] sudah terdaftar: ' + key + ' -> ' + id);
     return;
   }
 
