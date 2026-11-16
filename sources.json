@@ -181,6 +181,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T00:31:10.716Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://jarumsatu.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T00:35:59.785Z",
+      "addedBy": "issue"
     }
   ]
 }
