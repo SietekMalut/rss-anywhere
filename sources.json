@@ -229,6 +229,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T02:21:40.993Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://seputarmalut.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T02:24:10.626Z",
+      "addedBy": "issue"
     }
   ]
 }
