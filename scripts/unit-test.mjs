@@ -6,7 +6,8 @@
 import assert from 'node:assert/strict';
 import { parseHtml, extractPage, parseDate, decodeEntities, textOf } from '../src/html.js';
 import { parseFeedXml } from '../src/feed.js';
-import { buildRss, esc } from '../src/render.js';
+import { buildRss, buildJsonFeed, esc } from '../src/render.js';
+import { validateXml, validateFeedXml, validateJsonFeed, validatePair } from '../src/validate.js';
 
 let pass = 0;
 let fail = 0;
@@ -207,6 +208,107 @@ test('buildRss: escaping & struktur', () => {
 
 test('esc: buang karakter kontrol ilegal', () => {
   assert.equal(esc('a\u0000b\u0008c'), 'abc');
+});
+
+/* ---------------- validitas ---------------- */
+
+test('validateFeedXml: RSS hasil buildRss valid', () => {
+  const xml = buildRss({
+    feed: { title: 'Feed Uji', description: 'Desc', link: 'https://contoh.com', language: 'id' },
+    items: [{ title: 'Satu', link: 'https://contoh.com/1', summary: 'Ringkasan', date: '2026-11-14T08:00:00.000Z' }],
+    selfUrl: 'https://contoh.com/feeds/x.xml',
+    ttl: 900,
+  });
+  const v = validateFeedXml(xml);
+  assert.equal(v.ok, true, v.errors.join('; '));
+  assert.equal(v.kind, 'rss');
+  assert.equal(v.items, 1);
+  assert.equal(v.title, 'Feed Uji');
+  assert.equal(v.selfUrl, 'https://contoh.com/feeds/x.xml');
+});
+
+test('validateFeedXml: RSS asli dari RSS_XML diterima', () => {
+  const v = validateFeedXml(RSS_XML);
+  assert.equal(v.ok, true, v.errors.join('; '));
+  assert.equal(v.items, 1);
+});
+
+test('validateFeedXml: akar bukan rss/feed ditolak', () => {
+  const v = validateFeedXml('<html><body>halo</body></html>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('akar dokumen')));
+});
+
+test('validateXml: tag tidak ditutup -> tidak valid', () => {
+  const v = validateXml('<rss><channel><title>X</title></channel>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('belum ditutup')));
+});
+
+test('validateXml: tag tidak cocok -> tidak valid', () => {
+  const v = validateXml('<a><b></a></b>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('tidak cocok')));
+});
+
+test('validateXml: entity tak terdeklarasi (mis. &nbsp;) -> tidak valid', () => {
+  const v = validateXml('<p>a&nbsp;b</p>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('tidak dideklarasikan')));
+});
+
+test('validateXml: entity terdeklarasi di DOCTYPE diterima', () => {
+  const v = validateXml('<!DOCTYPE rss [<!ENTITY nbsp "&#160;">]><p>a&nbsp;b</p>');
+  assert.equal(v.ok, true, v.errors.join('; '));
+});
+
+test('validateXml: CDATA tidak ditutup -> tidak valid', () => {
+  const v = validateXml('<a><![CDATA[isi tanpa akhir</a>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('CDATA')));
+});
+
+test('validateXml: karakter kontrol ilegal -> tidak valid', () => {
+  const v = validateXml('<a>be' + String.fromCharCode(7) + 'las</a>');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('kontrol')));
+});
+
+test('validateJsonFeed: JSON Feed 1.1 valid', () => {
+  const json = buildJsonFeed({
+    feed: { title: 'Feed Uji', description: 'Desc', link: 'https://contoh.com' },
+    items: [{ title: 'Satu', link: 'https://contoh.com/1', summary: 'Ringkasan', date: '2026-11-14T08:00:00.000Z' }],
+    selfUrl: 'https://contoh.com/feeds/x.json',
+    ttl: 900,
+  });
+  const v = validateJsonFeed(json);
+  assert.equal(v.ok, true, v.errors.join('; '));
+  assert.equal(v.items, 1);
+});
+
+test('validateJsonFeed: bukan JSON / items hilang ditolak', () => {
+  assert.equal(validateJsonFeed('<xml/>').ok, false);
+  const v = validateJsonFeed('{"version":"https://jsonfeed.org/version/1.1","title":"X"}');
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('items')));
+});
+
+test('validatePair: XML & JSON jumlah item sama -> ok', () => {
+  const feed = { title: 'Feed Uji', description: 'Desc', link: 'https://contoh.com' };
+  const items = [{ title: 'Satu', link: 'https://contoh.com/1', summary: 'R', date: '2026-11-14T08:00:00.000Z' }];
+  const xml = buildRss({ feed, items, selfUrl: 'https://contoh.com/feeds/x.xml', ttl: 900 });
+  const json = buildJsonFeed({ feed, items, selfUrl: 'https://contoh.com/feeds/x.json', ttl: 900 });
+  const v = validatePair(xml, json);
+  assert.equal(v.ok, true, v.errors.join('; '));
+});
+
+test('validatePair: feed tanpa item ditolak', () => {
+  const feed = { title: 'Feed Uji', description: 'Desc', link: 'https://contoh.com' };
+  const xml = buildRss({ feed, items: [], selfUrl: 'https://contoh.com/feeds/x.xml', ttl: 900 });
+  const json = buildJsonFeed({ feed, items: [], selfUrl: 'https://contoh.com/feeds/x.json', ttl: 900 });
+  const v = validatePair(xml, json);
+  assert.equal(v.ok, false);
+  assert.ok(v.errors.some((e) => e.includes('tidak berisi item')));
 });
 
 /* ---------------- hasil ---------------- */

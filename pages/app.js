@@ -245,10 +245,92 @@ function showNext(url, issueUrl) {
   box.appendChild(el('ol', { class: 'steps tight' }, [
     el('li', { text: 'Halaman GitHub terbuka dengan judul dan isi issue yang sudah terisi.' }),
     el('li', { text: 'Klik "Submit new issue" (login GitHub dulu kalau diminta).' }),
-    el('li', { text: 'Tunggu ±1 menit — link feed muncul di komentar issue dan di daftar halaman ini.' }),
+    el('li', { text: 'Link feed di bawah aktif otomatis — statusnya berubah sendiri saat sudah tayang.' }),
   ]));
   box.appendChild(el('a', { class: 'primary link', href: issueUrl, target: '_blank', rel: 'noreferrer', text: 'Buka halaman GitHub untuk ' + hostOf(url) }));
   box.appendChild(el('p', { class: 'hint', text: 'Kalau tab baru tidak terbuka otomatis, klik tombol di atas.' }));
+  return box;
+}
+
+/* ------------------------------------------------------------------ */
+/* Link deterministik: bisa dihitung di browser, sama dengan yang      */
+/* dibuat scripts/lib/id.mjs (host + path + sha1(URL) 6 karakter).     */
+/* ------------------------------------------------------------------ */
+
+function slugOf(url) {
+  const u = new URL(url);
+  return (u.hostname + u.pathname)
+    .toLowerCase()
+    .replace(/^www\./, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40) || 'feed';
+}
+
+async function feedIdFor(rawUrl) {
+  const u = new URL(rawUrl);
+  u.hash = '';
+  const bytes = new TextEncoder().encode(u.href);
+  const digest = await crypto.subtle.digest('SHA-1', bytes);
+  const hex = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('').slice(0, 6);
+  return slugOf(u.href) + '-' + hex;
+}
+
+function siteBase() {
+  return new URL('./', location.href).href;
+}
+
+/** Tampilkan link yang sedang disiapkan + status live-nya. */
+function showPending(box, feedUrl, jsonUrl) {
+  const status = el('span', { class: 'badge warn', text: 'menunggu' });
+
+  const input = el('input', { type: 'text', readonly: true, value: feedUrl, class: 'mono' });
+  const copy = el('button', { type: 'button', class: 'primary', text: 'Salin link' });
+  copy.addEventListener('click', async () => {
+    const ok = await copyText(feedUrl);
+    copy.textContent = ok ? 'Tersalin ✓' : 'Gagal menyalin';
+    setTimeout(() => { copy.textContent = 'Salin link'; }, 1600);
+  });
+
+  const wrap = el('div', { class: 'pending' }, [
+    el('p', { class: 'pending-head' }, [el('strong', { text: 'Link feed Anda ' }), status]),
+    input,
+    el('div', { class: 'feed-actions' }, [
+      copy,
+      el('a', { class: 'chip', href: feedUrl, target: '_blank', rel: 'noreferrer', text: 'Cek XML' }),
+      el('a', { class: 'chip', href: jsonUrl, target: '_blank', rel: 'noreferrer', text: 'JSON' }),
+    ]),
+    el('p', { class: 'hint', text: 'Link ini tidak berubah. Biasanya aktif dalam ±30 detik setelah issue dikirim.' }),
+  ]);
+  box.appendChild(wrap);
+
+  return { wrap, status, feedUrl };
+}
+
+async function pollLive(pending, tries) {
+  const max = tries || 60;
+  for (let i = 0; i < max; i++) {
+    if (!pending.wrap.isConnected) return false;
+    try {
+      const res = await fetch(pending.feedUrl + '?t=' + Date.now(), { cache: 'no-store' });
+      if (res.ok) {
+        const text = await res.text();
+        const looksRss = /<rss[\s>]|<feed[\s>]/i.test(text.slice(0, 800));
+        const hasItems = /<(item|entry)([\s>])/i.test(text);
+        if (looksRss && hasItems) {
+          pending.status.className = 'badge ok';
+          pending.status.textContent = 'aktif ✓';
+          pending.wrap.classList.add('live');
+          load();
+          return true;
+        }
+      }
+    } catch { /* belum tayang, coba lagi */ }
+    await new Promise((r) => setTimeout(r, 4000));
+  }
+  pending.status.className = 'badge bad';
+  pending.status.textContent = 'belum aktif';
+  return false;
 }
 
 function submit(ev) {
@@ -281,12 +363,23 @@ function submit(ev) {
     body: 'URL: ' + href + '\n\nOpsional (boleh dihapus):\nfilter: \nlimit: 20\n',
   }).toString();
 
-  showNext(href, issueUrl);
+  const box = showNext(href, issueUrl);
   const win = window.open(issueUrl, '_blank', 'noopener');
   if (!win) {
     // popup diblokir: tombol manual di kartu "next" tetap bisa dipakai
-    $('next').scrollIntoView({ block: 'center', behavior: 'smooth' });
+    box.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
+
+  // Link bisa dihitung langsung di browser, jadi pengguna tidak perlu menunggu
+  // komentar bot: cukup salin sekarang, statusnya menyusul.
+  feedIdFor(href).then((id) => {
+    const base = siteBase();
+    const pending = showPending(box, base + 'feeds/' + id + '.xml', base + 'feeds/' + id + '.json');
+    pending.status.textContent = 'menunggu';
+    pollLive(pending);
+  }).catch(() => {
+    box.appendChild(el('p', { class: 'hint', text: 'Link akan dikirim di komentar issue setelah build selesai.' }));
+  });
 }
 
 $('add-form').addEventListener('submit', submit);

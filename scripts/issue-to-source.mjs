@@ -91,6 +91,7 @@ async function main() {
   if (!Array.isArray(doc.sources)) doc.sources = [];
 
   const id = feedId(key);
+  await out('feed_id', id);
   await out('feed_url', SITE_BASE + 'feeds/' + id + '.xml');
   await out('feed_json', SITE_BASE + 'feeds/' + id + '.json');
 

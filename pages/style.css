@@ -192,6 +192,41 @@ button.chip { font-weight: 500; font-size: 12.5px; padding: 6px 11px; color: var
 .match input { margin-bottom: 10px; }
 .match .primary { margin-right: 0; }
 
+/* Kartu link yang dihitung di browser sebelum feed benar-benar tayang. */
+.pending {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--card-2);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.pending-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.pending input[type="text"] {
+  width: 100%;
+  flex: none;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.pending .feed-actions { margin-bottom: 2px; }
+
+.pending.live {
+  border-color: rgba(53, 208, 127, 0.45);
+  background: rgba(53, 208, 127, 0.06);
+}
+
+.pending.live .hint { color: var(--green); }
+
 .list-head {
   display: flex;
   align-items: center;

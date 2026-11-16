@@ -1,9 +1,15 @@
 name: Feed builder
 
 # Membangun semua feed di sources.json, lalu menerbitkannya ke GitHub Pages.
+#
+# Alur cepat untuk link baru (issue):
+#   issue -> hanya feed baru yang dibangun, sisanya disalin dari versi tayang
+#         -> deploy -> link diverifikasi HTTP 200 + XML valid -> baru dibalas.
+#
 # - cron: refresh tiap 30 menit
 # - workflow_dispatch: tombol "Run workflow" manual
-# - issues: issue baru "[feed] https://..." menambahkan sumber dan langsung membangun feed
+# - push sources.json: sumber baru lewat file
+# - issues: issue "[feed] https://..." dari pemilik repo
 
 on:
   schedule:
@@ -22,20 +28,29 @@ permissions:
   id-token: write
 
 concurrency:
+  # Build baru tidak menunggu build lama selesai: run yang masih berjalan
+  # dibatalkan karena hasil build selalu lengkap dan idempoten.
   group: feed-builder
-  cancel-in-progress: false
+  cancel-in-progress: true
+
+env:
+  SITE_BASE: https://sietekmalut.github.io/rss-anywhere/
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     outputs:
       allowed: ${{ steps.issue.outputs.allowed }}
       is_new: ${{ steps.issue.outputs.is_new }}
       duplicate: ${{ steps.issue.outputs.duplicate }}
+      feed_id: ${{ steps.issue.outputs.feed_id }}
       feed_url: ${{ steps.issue.outputs.feed_url }}
       feed_json: ${{ steps.issue.outputs.feed_json }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - uses: actions/setup-node@v4
         with:
@@ -49,13 +64,17 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
           REPO_OWNER: ${{ github.repository_owner }}
-          SITE_BASE: https://sietekmalut.github.io/rss-anywhere/
         run: node scripts/issue-to-source.mjs
 
       - name: Bangun feed
+        id: build
         env:
-          SITE_BASE: https://sietekmalut.github.io/rss-anywhere/
+          BUILD_CONCURRENCY: '8'
+          ONLY_IDS: ${{ steps.issue.outputs.feed_id }}
         run: node scripts/build-static.mjs
+
+      - name: Periksa validitas hasil build
+        run: node scripts/verify-live.mjs --dist
 
       - name: Simpan hasil ke repositori
         run: |
@@ -66,7 +85,11 @@ jobs:
             echo "tidak ada perubahan"
           else
             git commit -m "feeds: perbarui $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
+            for attempt in 1 2 3; do
+              git pull --rebase --quiet origin main && git push --quiet && break
+              echo "push gagal (percobaan $attempt), mencoba lagi"
+              sleep 3
+            done
           fi
 
       - uses: actions/configure-pages@v5
@@ -75,32 +98,84 @@ jobs:
         with:
           path: dist
 
-      - name: Balas issue
-        if: github.event_name == 'issues' && steps.issue.outputs.allowed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.number }}
-          IS_NEW: ${{ steps.issue.outputs.is_new }}
-          DUP: ${{ steps.issue.outputs.duplicate }}
-          FEED_URL: ${{ steps.issue.outputs.feed_url }}
-          FEED_JSON: ${{ steps.issue.outputs.feed_json }}
-        run: |
-          if [ "$DUP" = "true" ]; then
-            body="Feed untuk URL ini sudah terdaftar: $FEED_URL"
-          elif [ "$IS_NEW" = "true" ]; then
-            body="Feed siap: $FEED_URL"$'\n\n'"JSON Feed: $FEED_JSON"$'\n\n'"Diperbarui otomatis setiap 30 menit. Daftar semua feed: https://sietekmalut.github.io/rss-anywhere/"
-          else
-            body="Tidak ada URL http(s) yang bisa dipakai di issue ini."
-          fi
-          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "$body"
-          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Balas issue hanya setelah link benar-benar hidup dan valid.
+  announce:
+    needs: [build, deploy]
+    if: github.event_name == 'issues' && needs.build.outputs.allowed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pastikan link sudah aktif
+        id: check
+        env:
+          FEED_URL: ${{ needs.build.outputs.feed_url }}
+        run: |
+          if [ -z "$FEED_URL" ]; then
+            echo "live=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if node scripts/verify-live.mjs --url "$FEED_URL" --wait 90; then
+            echo "live=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "live=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Balas issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          IS_NEW: ${{ needs.build.outputs.is_new }}
+          DUP: ${{ needs.build.outputs.duplicate }}
+          FEED_URL: ${{ needs.build.outputs.feed_url }}
+          FEED_JSON: ${{ needs.build.outputs.feed_json }}
+          LIVE: ${{ steps.check.outputs.live }}
+          SITE: ${{ env.SITE_BASE }}
+        run: |
+          if [ "$IS_NEW" != "true" ] && [ "$DUP" != "true" ]; then
+            body="Tidak ada URL http(s) yang bisa dipakai di issue ini."
+          elif [ "$LIVE" != "true" ]; then
+            body="Link belum bisa dipakai: pengambilan sumber gagal atau belum selesai, jadi feed tidak diterbitkan."$'\n\n'"URL yang diminta: ${FEED_URL:-"(tidak ada)"}"$'\n\n'"Sumber menolak permintaan otomatis (403/405/429) atau sedang tidak bisa dihubungi. Coba URL halaman lain (mis. kategori atau beranda), lalu buka issue baru. Rincian tiap feed ada di $SITE""feeds.json"
+          elif [ "$DUP" = "true" ]; then
+            body="Feed untuk URL ini sudah terdaftar: $FEED_URL"$'\n\n'"Sudah diverifikasi aktif (HTTP 200, XML valid)."
+          else
+            body="Feed siap: $FEED_URL"$'\n\n'"JSON Feed: $FEED_JSON"$'\n\n'"Sudah diverifikasi aktif (HTTP 200, XML valid, ada item). Diperbarui otomatis setiap 30 menit. Daftar semua feed: $SITE"
+          fi
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "$body"
+          if [ "$LIVE" = "true" ]; then
+            gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY"
+          fi
+
+  # Pemeriksaan berkala: semua link yang tayang harus HTTP 200 dan valid.
+  verify:
+    needs: deploy
+    if: github.event_name != 'issues'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verifikasi semua link live
+        run: node scripts/verify-live.mjs --all --wait 30

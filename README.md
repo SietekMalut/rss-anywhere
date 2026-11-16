@@ -14,6 +14,8 @@ https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml
 - **Gratis**, tanpa server, tanpa database.
 - **Permanen** — ID feed dihitung dari URL, jadi linknya tidak berubah.
 - **Diperbarui otomatis** tiap 30 menit oleh GitHub Actions.
+- **Cepat** — link bisa dihitung langsung di browser (muncul seketika), dan build feed baru hanya memproses sumber baru (sisanya disalin dari versi tayang) ±2 detik.
+- **Dijamin valid** — setiap dokumen diperiksa (well-formed XML, RSS/Atom, JSON Feed) sebelum diterbitkan; link hanya diumumkan setelah lolos verifikasi HTTP 200 + ada item.
 - **Dua format**: RSS 2.0 (`feeds/<id>.xml`) dan JSON Feed 1.1 (`feeds/<id>.json`).
 - **Tanpa dependensi runtime** — mesinnya hanya memakai Web API standar (`fetch`, `TextDecoder`, `AbortController`).
 
@@ -24,7 +26,7 @@ https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml
 1. Buka <https://sietekmalut.github.io/rss-anywhere/>
 2. Tempel URL halaman (beranda, kategori, atau blog) → klik **Buat link feed**
 3. GitHub terbuka dengan issue yang sudah terisi → klik **Submit new issue**
-4. Tunggu ±1 menit. Bot akan mengomentari issue dengan link feed lalu menutupnya
+4. Link feed langsung muncul di halaman (dihitung di browser) dengan status **menunggu**. Setelah ±30 detik statusnya berubah **aktif ✓** dan bot membalas issue dengan link yang sudah diverifikasi.
 
 Hanya issue dari **pemilik repo** yang diproses (repo publik, tapi penambahan feed dibatasi agar tidak jadi alat penyalahgunaan).
 
@@ -61,10 +63,16 @@ sources.json
 src/feed.js  ──  fetch halaman, deteksi feed, ekstraksi HTML, sitemap
     │
     ▼
-feeds/<id>.xml + feeds/<id>.json + feeds.json   (di-commit ke repo)
+src/validate.js  ──  pastikan XML/JSON well-formed & berisi item (gagal → render ulang)
+    │
+    ▼
+feeds/<id>.xml + feeds/<id>.json + feeds.json   (feeds.json di-commit sebagai metadata)
     │
     ▼
 dist/  ──►  artefak GitHub Pages  ──►  https://sietekmalut.github.io/rss-anywhere/
+    │
+    ▼
+verify-live  ──  HTTP 200 + XML/JSON valid + ≥1 item  ──►  baru diumumkan
 ```
 
 Urutan deteksi per sumber:
@@ -76,7 +84,11 @@ Urutan deteksi per sumber:
 
 Pengaman: SSRF guard (localhost/IP privat/endpoint metadata ditolak, redirect divalidasi), batas ukuran 3 MB, timeout 10 detik per pengambilan.
 
-Kalau satu sumber gagal diambil, file lamanya **tidak dihapus** — feed tetap bisa dibaca dan `feeds.json` menandainya dengan pesan error.
+Kecepatan: sumber diambil **paralel** (`BUILD_CONCURRENCY`, default 8), jadi total waktu mengikuti sumber terlama — bukan jumlah semua sumber. Untuk issue baru, `ONLY_IDS` membuat build hanya memproses feed baru dan menyalin sisanya dari versi tayang (±2 detik).
+
+Validitas: setiap dokumen diperiksa `src/validate.js` sebelum ditulis. Kalau XML asli dari situs ternyata tidak well-formed (mis. memuat `&nbsp;` tanpa deklarasi entity), feed **dirender ulang** dari item hasil parsing. Setelah deploy, `verify-live` memastikan tiap link benar-benar HTTP 200 + valid + berisi item.
+
+Kalau satu sumber gagal diambil, file lamanya **tidak dihapus** — feed tetap bisa dibaca dan `feeds.json` menandainya dengan pesan error. Kalau tidak ada file valid yang bisa disajikan, link-nya **tidak diiklankan** (`feedUrl: null`) supaya tidak ada link mati.
 
 ---
 
@@ -85,12 +97,12 @@ Kalau satu sumber gagal diambil, file lamanya **tidak dihapus** — feed tetap b
 ```
 sources.json            daftar URL yang dijadikan feed
 feeds/                  hasil build (tidak di-commit): <id>.xml + <id>.json
-feeds.json              daftar feed untuk UI (judul, jumlah item, link)
+feeds.json              daftar feed untuk UI (judul, jumlah item, link, error)
 pages/                  UI statis yang disajikan GitHub Pages
 dist/                   hasil build siap-deploy (tidak di-commit)
 .github/workflows/      feed builder + deploy Pages
-src/                    mesin: parser, ekstraksi, renderer, core
-scripts/                build, tes, benchmark, simulator
+src/                    mesin: parser, ekstraksi, renderer, validator, core
+scripts/                build, verifikasi, tes, benchmark, simulator
 api/ + public/          opsi mode server (Vercel) — lihat bagian 6
 ```
 
@@ -105,8 +117,16 @@ cd "C:\Users\LENOVO\Documents\Default Project\rss-anywhere"
 
 node scripts/build-static.mjs    # bangun semua feed + dist/
 node scripts/serve-dist.mjs      # lihat hasil build di http://localhost:8790
-node scripts/unit-test.mjs       # 14 tes parser & renderer
+node scripts/unit-test.mjs       # 27 tes parser, renderer & validator
+node scripts/verify-live.mjs --dist          # pastikan berkas hasil build valid (tanpa jaringan)
+node scripts/verify-live.mjs --all --wait 30 # cek semua link yang tayang
 node scripts/bench.mjs           # kecepatan parse
+```
+
+Build hanya sebagian (jalur cepat, dipakai saat issue baru):
+
+```powershell
+$env:ONLY_IDS="kompas-com-c667a3"; node scripts/build-static.mjs
 ```
 
 Untuk mencoba alur issue tanpa menunggu GitHub:
@@ -134,6 +154,7 @@ Start-Process https://sietekmalut.github.io/rss-anywhere/
 ```
 
 - **Jadwal:** `cron: '*/30 * * * *'`. GitHub bisa menunda 5–15 menit saat sibuk; itu normal.
+- **Verifikasi otomatis:** setelah deploy, workflow memeriksa setiap link (HTTP 200 + XML/JSON valid + ≥1 item). Issue baru hanya dibalas setelah link-nya lolos pemeriksaan ini.
 - **Repo harus tetap aktif.** GitHub menonaktifkan workflow terjadwal setelah 60 hari tanpa aktivitas — commit otomatis tiap 30 menit membuat repo selalu aktif.
 - **Kuota gratis:** repo publik = menit Actions tanpa batas, bandwidth Pages 100 GB/bulan.
 - **Ganti nama repo?** Ubah `SITE_BASE` di `.github/workflows/feeds.yml` dan fallback `REPO_FALLBACK` di `pages/app.js`.
@@ -188,6 +209,8 @@ Endpoint mode server: `/feed?url=…` (RSS), `/feed.json?url=…`, `/api/preview
 | Issue tidak dibalas | Issue bukan dari pemilik repo, atau tidak ada URL `http(s)` di judul/isi |
 | Feed 0 item | Halaman tidak punya daftar artikel. Coba URL kategori/beranda lain, atau set `mode: html` |
 | `badge gagal` di UI | Sumber menolak permintaan. File lama tetap dipakai; coba lagi nanti |
+| Status tetap `menunggu` | Build belum selesai atau sumber gagal diambil. Cek `gh run list`; kalau sumber menolak (403), coba URL halaman lain |
+| Link 404 setelah dibuat | Berarti sumber gagal dan tidak ada file valid yang bisa disajikan — link sengaja tidak diiklankan. Buka issue baru dengan URL lain |
 | Feed tidak berubah | Cek `gh run list`; jalankan `gh workflow run feeds.yml` |
 | Halaman 404 di Pages | Pastikan **Settings → Pages → Source = GitHub Actions** dan deploy terakhir sukses |
 | Link tidak bisa dibuka | Link harus lengkap `https://sietekmalut.github.io/rss-anywhere/feeds/<id>.xml` |
