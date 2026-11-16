@@ -357,6 +357,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T09:40:43.339Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.kierahapost.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:44:23.840Z",
+      "addedBy": "issue"
     }
   ]
 }
