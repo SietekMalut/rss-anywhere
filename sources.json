@@ -213,6 +213,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T02:08:36.537Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://okusmalut.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T02:19:28.405Z",
+      "addedBy": "issue"
     }
   ]
 }
