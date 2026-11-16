@@ -269,6 +269,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T08:45:45.925Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://beritabuana.co/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T08:52:49.580Z",
+      "addedBy": "issue"
     }
   ]
 }
