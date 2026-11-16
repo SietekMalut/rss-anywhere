@@ -325,6 +325,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T09:23:00.891Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://inilahtimur.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:26:17.216Z",
+      "addedBy": "issue"
     }
   ]
 }
