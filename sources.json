@@ -309,6 +309,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T09:14:11.488Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://corongpublik.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:19:45.418Z",
+      "addedBy": "issue"
     }
   ]
 }
