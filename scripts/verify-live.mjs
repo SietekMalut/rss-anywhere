@@ -22,6 +22,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 const DIST_DIR = path.join(ROOT, 'dist');
 const REGISTRY = path.join(ROOT, 'feeds.json');
+const SITE_BASE = (process.env.SITE_BASE || 'https://sietekmalut.github.io/rss-anywhere/').replace(/\/*$/, '/');
 
 const args = process.argv.slice(2);
 const has = (name) => args.includes('--' + name);
@@ -188,6 +189,32 @@ async function verifyDist() {
   return [failures.length === 0, failures];
 }
 
+/**
+ * Daftar feed yang akan diperiksa.
+ *
+ * Untuk --all, pakai feeds.json yang BENAR-BENAR tayang di situs, bukan file
+ * lokal. Alasannya: hasil build di runner bisa berbeda dengan build lokal
+ * (beberapa situs memblokir IP GitHub), jadi feeds.json lokal bisa berisi link
+ * yang memang tidak diterbitkan. File lokal hanya dipakai sebagai cadangan.
+ */
+async function loadRegistry() {
+  try {
+    const res = await fetch(SITE_BASE + 'feeds.json?t=' + Date.now(), {
+      headers: { 'cache-control': 'no-cache', 'user-agent': 'RSSAnywhere-verify/1.0' },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && Array.isArray(data.feeds)) {
+        console.log('[verify] daftar feed dari ' + SITE_BASE + 'feeds.json');
+        return data;
+      }
+    }
+  } catch { /* pakai file lokal */ }
+  console.log('[verify] daftar feed dari feeds.json lokal');
+  return JSON.parse(await readFile(REGISTRY, 'utf8'));
+}
+
 async function main() {
   const started = Date.now();
   const urls = optAll('url');
@@ -202,7 +229,7 @@ async function main() {
   }
 
   if (!urls.length && has('all')) {
-    const registry = JSON.parse(await readFile(REGISTRY, 'utf8'));
+    const registry = await loadRegistry();
     for (const feed of registry.feeds || []) {
       if (feed.feedUrl) urls.push(feed.feedUrl);
       if (feed.jsonUrl) urls.push(feed.jsonUrl);
