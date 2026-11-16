@@ -173,6 +173,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T00:27:28.124Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.pojoklima.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T00:31:10.716Z",
+      "addedBy": "issue"
     }
   ]
 }
