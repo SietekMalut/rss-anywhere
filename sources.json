@@ -261,6 +261,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T08:40:56.616Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.suara.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T08:45:45.925Z",
+      "addedBy": "issue"
     }
   ]
 }
