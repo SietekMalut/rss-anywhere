@@ -341,6 +341,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T09:31:37.747Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://cerminhalmahera.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:33:17.456Z",
+      "addedBy": "issue"
     }
   ]
 }
