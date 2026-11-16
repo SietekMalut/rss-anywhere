@@ -237,6 +237,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T02:24:10.626Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://madingkota.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T05:07:49.566Z",
+      "addedBy": "issue"
     }
   ]
 }
