@@ -277,6 +277,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T08:52:49.580Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.jazirahnusantara.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:00:38.807Z",
+      "addedBy": "issue"
     }
   ]
 }
