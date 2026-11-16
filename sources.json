@@ -285,6 +285,14 @@
       "mode": "auto",
       "addedAt": "2026-11-16T09:00:38.807Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.instagram.com/malut_infoo/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-16T09:09:22.190Z",
+      "addedBy": "issue"
     }
   ]
 }
