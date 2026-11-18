@@ -421,6 +421,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:35:01.762Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://tirto.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:40:25.918Z",
+      "addedBy": "issue"
     }
   ]
 }
