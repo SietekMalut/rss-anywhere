@@ -429,6 +429,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:40:25.918Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://beritanow.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:43:03.763Z",
+      "addedBy": "issue"
     }
   ]
 }
