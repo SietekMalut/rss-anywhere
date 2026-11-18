@@ -381,6 +381,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:02:45.656Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.tvrinews.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:07:22.329Z",
+      "addedBy": "issue"
     }
   ]
 }
