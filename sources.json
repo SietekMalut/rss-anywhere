@@ -413,6 +413,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:32:10.504Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://kumparan.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:35:01.762Z",
+      "addedBy": "issue"
     }
   ]
 }
