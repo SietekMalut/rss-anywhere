@@ -397,6 +397,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:16:33.125Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.republika.co.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:24:16.584Z",
+      "addedBy": "issue"
     }
   ]
 }
