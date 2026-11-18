@@ -373,6 +373,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T03:56:33.657Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://mediaindonesia.com/politik-dan-hukum",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-18T04:02:45.656Z",
+      "addedBy": "issue"
     }
   ]
 }
