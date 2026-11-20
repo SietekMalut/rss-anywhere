@@ -485,6 +485,14 @@
       "mode": "auto",
       "addedAt": "2026-11-20T11:10:59.409Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://pikiranummat.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T11:11:52.608Z",
+      "addedBy": "issue"
     }
   ]
 }
