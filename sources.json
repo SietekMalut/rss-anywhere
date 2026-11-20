@@ -501,6 +501,14 @@
       "mode": "auto",
       "addedAt": "2026-11-20T11:40:58.748Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.threads.com/@sumargodenny?hl=en",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T11:47:01.992Z",
+      "addedBy": "issue"
     }
   ]
 }
