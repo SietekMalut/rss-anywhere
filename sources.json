@@ -437,6 +437,14 @@
       "mode": "auto",
       "addedAt": "2026-11-18T04:43:03.763Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://poskomalut.com/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T10:49:59.128Z",
+      "addedBy": "issue"
     }
   ]
 }
