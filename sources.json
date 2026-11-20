@@ -469,6 +469,14 @@
       "mode": "auto",
       "addedAt": "2026-11-20T11:04:48.752Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://klikfakta.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T11:08:24.754Z",
+      "addedBy": "issue"
     }
   ]
 }
