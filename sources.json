@@ -461,6 +461,14 @@
       "mode": "auto",
       "addedAt": "2026-11-20T10:58:45.636Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://rri.co.id/ternate",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T11:04:48.752Z",
+      "addedBy": "issue"
     }
   ]
 }
