@@ -445,6 +445,14 @@
       "mode": "auto",
       "addedAt": "2026-11-20T10:49:59.128Z",
       "addedBy": "issue"
+    },
+    {
+      "url": "https://www.okebaik.id/",
+      "limit": 20,
+      "filter": "limit: 20",
+      "mode": "auto",
+      "addedAt": "2026-11-20T10:56:35.684Z",
+      "addedBy": "issue"
     }
   ]
 }
