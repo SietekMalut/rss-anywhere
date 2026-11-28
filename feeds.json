@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-28T01:44:31.584Z",
+  "generatedAt": "2026-11-28T09:36:21.440Z",
   "site": "https://sietekmalut.github.io/rss-anywhere/",
-  "ok": 43,
-  "failed": 21,
-  "buildMs": 23801,
+  "ok": 40,
+  "failed": 24,
+  "buildMs": 28121,
   "feeds": [
     {
       "id": "github-blog-d9c39a",
@@ -16,8 +16,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/github-blog-d9c39a.json",
       "bytes": 192850,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:08.105Z",
-      "elapsedMs": 317,
+      "updatedAt": "2026-11-28T09:35:53.521Z",
+      "elapsedMs": 197,
       "error": null
     },
     {
@@ -29,10 +29,10 @@
       "source": "html",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kompas-com-c667a3.json",
-      "bytes": 17530,
+      "bytes": 17141,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:11.450Z",
-      "elapsedMs": 3620,
+      "updatedAt": "2026-11-28T09:35:55.631Z",
+      "elapsedMs": 2265,
       "error": null
     },
     {
@@ -44,10 +44,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/terbitmalut-com-859a30.json",
-      "bytes": 62954,
+      "bytes": 65508,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.042Z",
-      "elapsedMs": 4210,
+      "updatedAt": "2026-11-28T09:36:00.941Z",
+      "elapsedMs": 7574,
       "error": null
     },
     {
@@ -60,8 +60,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:09.049Z",
-      "elapsedMs": 1216,
+      "updatedAt": "2026-11-28T09:35:54.558Z",
+      "elapsedMs": 1190,
       "error": "Sumber membalas HTTP 400."
     },
     {
@@ -74,8 +74,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:31.583Z",
-      "elapsedMs": 23749,
+      "updatedAt": "2026-11-28T09:36:21.439Z",
+      "elapsedMs": 28070,
       "error": "hasil build tidak valid: XML: tidak berisi item; JSON: tidak berisi item"
     },
     {
@@ -87,10 +87,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cermat-co-id-d197d4.json",
-      "bytes": 48723,
+      "bytes": 49234,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.325Z",
-      "elapsedMs": 4490,
+      "updatedAt": "2026-11-28T09:36:02.256Z",
+      "elapsedMs": 8887,
       "error": null
     },
     {
@@ -103,8 +103,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:09.008Z",
-      "elapsedMs": 1173,
+      "updatedAt": "2026-11-28T09:35:54.555Z",
+      "elapsedMs": 1185,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -118,8 +118,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/portalmalut-com-ec5d73.json",
       "bytes": 43937,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.613Z",
-      "elapsedMs": 4777,
+      "updatedAt": "2026-11-28T09:35:57.341Z",
+      "elapsedMs": 3970,
       "error": null
     },
     {
@@ -133,9 +133,11 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/coretansatu-com-a05a9c.json",
       "bytes": 82620,
       "validated": true,
+      "carried": true,
       "updatedAt": "2026-11-28T01:44:11.337Z",
-      "elapsedMs": 3500,
-      "error": null
+      "elapsedMs": 1140,
+      "error": "Gagal mengambil halaman: fetch failed",
+      "stale": true
     },
     {
       "id": "lidikpost-id-c93374",
@@ -147,8 +149,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:09.046Z",
-      "elapsedMs": 1208,
+      "updatedAt": "2026-11-28T09:35:54.526Z",
+      "elapsedMs": 1154,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -160,10 +162,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/malutline-com-9935f7.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/malutline-com-9935f7.json",
-      "bytes": 16604,
+      "bytes": 16823,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:09.481Z",
-      "elapsedMs": 1642,
+      "updatedAt": "2026-11-28T09:35:55.228Z",
+      "elapsedMs": 1855,
       "error": null
     },
     {
@@ -177,8 +179,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/mimbarkieraha-com-6f476a.json",
       "bytes": 149908,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:09.147Z",
-      "elapsedMs": 1308,
+      "updatedAt": "2026-11-28T09:35:54.557Z",
+      "elapsedMs": 1183,
       "error": null
     },
     {
@@ -190,10 +192,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/nalartimur-com-1a339c.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/nalartimur-com-1a339c.json",
-      "bytes": 97766,
+      "bytes": 86864,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.243Z",
-      "elapsedMs": 4138,
+      "updatedAt": "2026-11-28T09:35:57.592Z",
+      "elapsedMs": 4071,
       "error": null
     },
     {
@@ -207,8 +209,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/radarmalut-com-e8f7ee.json",
       "bytes": 42495,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:13.229Z",
-      "elapsedMs": 4221,
+      "updatedAt": "2026-11-28T09:35:59.535Z",
+      "elapsedMs": 5023,
       "error": null
     },
     {
@@ -222,9 +224,11 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/narasitimur-id-206317.json",
       "bytes": 34491,
       "validated": true,
+      "carried": true,
       "updatedAt": "2026-11-28T01:44:11.599Z",
-      "elapsedMs": 2553,
-      "error": null
+      "elapsedMs": 511,
+      "error": "Gagal mengambil halaman: fetch failed",
+      "stale": true
     },
     {
       "id": "ternate-tribunnews-com-0d6bf4",
@@ -239,7 +243,7 @@
       "validated": true,
       "carried": true,
       "updatedAt": "2026-11-27T18:34:05.013Z",
-      "elapsedMs": 1024,
+      "elapsedMs": 1194,
       "error": "hasil build tidak valid: XML: tidak berisi item; JSON: tidak berisi item",
       "stale": true
     },
@@ -254,8 +258,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/tivanews-com-e36d53.json",
       "bytes": 41994,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.601Z",
-      "elapsedMs": 3454,
+      "updatedAt": "2026-11-28T09:35:58.512Z",
+      "elapsedMs": 3955,
       "error": null
     },
     {
@@ -268,8 +272,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:10.149Z",
-      "elapsedMs": 668,
+      "updatedAt": "2026-11-28T09:35:55.665Z",
+      "elapsedMs": 1107,
       "error": "Gagal mengambil halaman: fetch failed"
     },
     {
@@ -283,8 +287,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/rakyatmu-com-12d43c.json",
       "bytes": 48917,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.010Z",
-      "elapsedMs": 1937,
+      "updatedAt": "2026-11-28T09:35:57.956Z",
+      "elapsedMs": 2918,
       "error": null
     },
     {
@@ -296,10 +300,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/buletinmalut-com-a4994e.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/buletinmalut-com-a4994e.json",
-      "bytes": 44324,
+      "bytes": 44796,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:11.418Z",
-      "elapsedMs": 1269,
+      "updatedAt": "2026-11-28T09:35:56.852Z",
+      "elapsedMs": 1624,
       "error": null
     },
     {
@@ -313,8 +317,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/lintaskieraha-com-0f79f6.json",
       "bytes": 55124,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.876Z",
-      "elapsedMs": 1538,
+      "updatedAt": "2026-11-28T09:35:57.737Z",
+      "elapsedMs": 2106,
       "error": null
     },
     {
@@ -327,8 +331,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:11.659Z",
-      "elapsedMs": 241,
+      "updatedAt": "2026-11-28T09:35:56.048Z",
+      "elapsedMs": 383,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -342,8 +346,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/pojoklima-com-293044.json",
       "bytes": 58094,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:13.480Z",
-      "elapsedMs": 2030,
+      "updatedAt": "2026-11-28T09:35:58.355Z",
+      "elapsedMs": 2606,
       "error": null
     },
     {
@@ -357,8 +361,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/jarumsatu-com-9092e4.json",
       "bytes": 71611,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:12.779Z",
-      "elapsedMs": 1180,
+      "updatedAt": "2026-11-28T09:35:57.016Z",
+      "elapsedMs": 968,
       "error": null
     },
     {
@@ -372,9 +376,11 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/detikmalut-com-ffb6e1.json",
       "bytes": 195821,
       "validated": true,
+      "carried": true,
       "updatedAt": "2026-11-28T01:44:12.304Z",
-      "elapsedMs": 645,
-      "error": null
+      "elapsedMs": 681,
+      "error": "Sumber membatasi jumlah permintaan (HTTP 429).",
+      "stale": true
     },
     {
       "id": "sidikkasus-co-id-c50333",
@@ -386,8 +392,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:22.122Z",
-      "elapsedMs": 10112,
+      "updatedAt": "2026-11-28T09:36:07.042Z",
+      "elapsedMs": 10026,
       "error": "Sumber tidak merespons dalam 10 detik."
     },
     {
@@ -400,9 +406,9 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:12.481Z",
-      "elapsedMs": 439,
-      "error": "Sumber menolak akses (HTTP 403)."
+      "updatedAt": "2026-11-28T09:36:00.719Z",
+      "elapsedMs": 3378,
+      "error": "hasil build tidak valid: XML: tidak berisi item; JSON: tidak berisi item"
     },
     {
       "id": "okusmalut-com-129f4d",
@@ -414,8 +420,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:12.577Z",
-      "elapsedMs": 334,
+      "updatedAt": "2026-11-28T09:35:57.586Z",
+      "elapsedMs": 53,
       "error": "Gagal mengambil halaman: fetch failed"
     },
     {
@@ -429,8 +435,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/fokusmalut-com-ca402a.json",
       "bytes": 64724,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:15.502Z",
-      "elapsedMs": 3198,
+      "updatedAt": "2026-11-28T09:36:03.085Z",
+      "elapsedMs": 5499,
       "error": null
     },
     {
@@ -446,7 +452,7 @@
       "validated": true,
       "carried": true,
       "updatedAt": "2026-11-27T00:10:42.410Z",
-      "elapsedMs": 724,
+      "elapsedMs": 976,
       "error": "Gagal mengambil halaman: fetch failed",
       "stale": true
     },
@@ -461,8 +467,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/madingkota-com-337ad1.json",
       "bytes": 55952,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:15.462Z",
-      "elapsedMs": 2981,
+      "updatedAt": "2026-11-28T09:36:02.570Z",
+      "elapsedMs": 4833,
       "error": null
     },
     {
@@ -474,10 +480,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/detikharianpos-com-97b985.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/detikharianpos-com-97b985.json",
-      "bytes": 64816,
+      "bytes": 62847,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:14.003Z",
-      "elapsedMs": 1426,
+      "updatedAt": "2026-11-28T09:36:00.416Z",
+      "elapsedMs": 2460,
       "error": null
     },
     {
@@ -490,8 +496,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:13.234Z",
-      "elapsedMs": 633,
+      "updatedAt": "2026-11-28T09:35:59.343Z",
+      "elapsedMs": 988,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -503,10 +509,10 @@
       "source": "sitemap",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/suara-com-16be64.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/suara-com-16be64.json",
-      "bytes": 9610,
+      "bytes": 10077,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:16.464Z",
-      "elapsedMs": 3851,
+      "updatedAt": "2026-11-28T09:36:01.559Z",
+      "elapsedMs": 3046,
       "error": null
     },
     {
@@ -518,10 +524,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/beritabuana-co-474d1c.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/beritabuana-co-474d1c.json",
-      "bytes": 10385,
+      "bytes": 10713,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:14.349Z",
-      "elapsedMs": 1570,
+      "updatedAt": "2026-11-28T09:36:01.289Z",
+      "elapsedMs": 2721,
       "error": null
     },
     {
@@ -535,8 +541,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/jazirahnusantara-com-d98ca1.json",
       "bytes": 58936,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:16.619Z",
-      "elapsedMs": 3743,
+      "updatedAt": "2026-11-28T09:36:01.820Z",
+      "elapsedMs": 2476,
       "error": null
     },
     {
@@ -549,8 +555,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:19.696Z",
-      "elapsedMs": 6647,
+      "updatedAt": "2026-11-28T09:36:03.048Z",
+      "elapsedMs": 3513,
       "error": "hasil build tidak valid: XML: tidak berisi item; JSON: tidak berisi item"
     },
     {
@@ -564,8 +570,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/ufuktimur-com-60f716.json",
       "bytes": 56040,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:14.489Z",
-      "elapsedMs": 1260,
+      "updatedAt": "2026-11-28T09:36:00.658Z",
+      "elapsedMs": 242,
       "error": null
     },
     {
@@ -577,10 +583,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/halmaheraraya-id-63c19e.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/halmaheraraya-id-63c19e.json",
-      "bytes": 51824,
+      "bytes": 51689,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:19.580Z",
-      "elapsedMs": 6346,
+      "updatedAt": "2026-11-28T09:36:06.880Z",
+      "elapsedMs": 6222,
       "error": null
     },
     {
@@ -593,8 +599,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:14.092Z",
-      "elapsedMs": 612,
+      "updatedAt": "2026-11-28T09:36:00.959Z",
+      "elapsedMs": 240,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -608,8 +614,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/marasai-id-be506c.json",
       "bytes": 111503,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:15.577Z",
-      "elapsedMs": 1574,
+      "updatedAt": "2026-11-28T09:36:04.499Z",
+      "elapsedMs": 3558,
       "error": null
     },
     {
@@ -623,8 +629,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/inilahtimur-com-f97fa8.json",
       "bytes": 40648,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:16.360Z",
-      "elapsedMs": 2268,
+      "updatedAt": "2026-11-28T09:36:03.234Z",
+      "elapsedMs": 2275,
       "error": null
     },
     {
@@ -637,8 +643,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:15.521Z",
-      "elapsedMs": 1172,
+      "updatedAt": "2026-11-28T09:36:02.708Z",
+      "elapsedMs": 1419,
       "error": "Sumber membalas HTTP 400."
     },
     {
@@ -650,10 +656,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cerminhalmahera-com-7886be.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/cerminhalmahera-com-7886be.json",
-      "bytes": 26948,
+      "bytes": 26895,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:16.071Z",
-      "elapsedMs": 1582,
+      "updatedAt": "2026-11-28T09:36:03.609Z",
+      "elapsedMs": 2050,
       "error": null
     },
     {
@@ -667,8 +673,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/tendensi-id-0a3d70.json",
       "bytes": 51231,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:16.959Z",
-      "elapsedMs": 1497,
+      "updatedAt": "2026-11-28T09:36:05.257Z",
+      "elapsedMs": 3437,
       "error": null
     },
     {
@@ -680,10 +686,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kierahapost-com-96d5d9.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kierahapost-com-96d5d9.json",
-      "bytes": 57461,
+      "bytes": 64172,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:18.011Z",
-      "elapsedMs": 2509,
+      "updatedAt": "2026-11-28T09:36:08.396Z",
+      "elapsedMs": 6140,
       "error": null
     },
     {
@@ -696,8 +702,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:16.085Z",
-      "elapsedMs": 564,
+      "updatedAt": "2026-11-28T09:36:02.811Z",
+      "elapsedMs": 242,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -710,8 +716,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:16.097Z",
-      "elapsedMs": 520,
+      "updatedAt": "2026-11-28T09:36:02.839Z",
+      "elapsedMs": 131,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -725,8 +731,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/tvrinews-com-20ef9f.json",
       "bytes": 6119,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:21.548Z",
-      "elapsedMs": 5477,
+      "updatedAt": "2026-11-28T09:36:08.628Z",
+      "elapsedMs": 5816,
       "error": null
     },
     {
@@ -738,10 +744,10 @@
       "source": "sitemap",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/nasional-tvrinews-com-8a2aa9.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/nasional-tvrinews-com-8a2aa9.json",
-      "bytes": 9414,
+      "bytes": 9137,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:21.748Z",
-      "elapsedMs": 5663,
+      "updatedAt": "2026-11-28T09:36:10.814Z",
+      "elapsedMs": 7975,
       "error": null
     },
     {
@@ -753,25 +759,25 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/republika-co-id-63949a.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/republika-co-id-63949a.json",
-      "bytes": 25745,
+      "bytes": 24867,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:18.582Z",
-      "elapsedMs": 2485,
+      "updatedAt": "2026-11-28T09:36:04.573Z",
+      "elapsedMs": 1525,
       "error": null
     },
     {
       "id": "okezone-com-993015",
       "url": "https://www.okezone.com/",
-      "title": "Sindikasi news.okezone.com",
+      "title": "Sindikasi celebrity.okezone.com",
       "siteUrl": "https://www.okezone.com/",
       "count": 20,
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/okezone-com-993015.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/okezone-com-993015.json",
-      "bytes": 32812,
+      "bytes": 32958,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:17.135Z",
-      "elapsedMs": 775,
+      "updatedAt": "2026-11-28T09:36:03.907Z",
+      "elapsedMs": 822,
       "error": null
     },
     {
@@ -783,10 +789,10 @@
       "source": "sitemap",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kumparan-com-db71bd.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/kumparan-com-db71bd.json",
-      "bytes": 11844,
+      "bytes": 11854,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:22.338Z",
-      "elapsedMs": 5874,
+      "updatedAt": "2026-11-28T09:36:09.548Z",
+      "elapsedMs": 6314,
       "error": null
     },
     {
@@ -799,8 +805,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:16.873Z",
-      "elapsedMs": 254,
+      "updatedAt": "2026-11-28T09:36:03.781Z",
+      "elapsedMs": 172,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -812,10 +818,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/beritanow-com-259e22.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/beritanow-com-259e22.json",
-      "bytes": 39195,
+      "bytes": 39420,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:18.751Z",
-      "elapsedMs": 1877,
+      "updatedAt": "2026-11-28T09:36:04.799Z",
+      "elapsedMs": 1018,
       "error": null
     },
     {
@@ -827,10 +833,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/poskomalut-com-59cf5b.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/poskomalut-com-59cf5b.json",
-      "bytes": 15608,
+      "bytes": 15594,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:19.488Z",
-      "elapsedMs": 2528,
+      "updatedAt": "2026-11-28T09:36:06.444Z",
+      "elapsedMs": 2537,
       "error": null
     },
     {
@@ -842,10 +848,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/okebaik-id-29eba1.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/okebaik-id-29eba1.json",
-      "bytes": 63797,
+      "bytes": 62946,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:20.733Z",
-      "elapsedMs": 3598,
+      "updatedAt": "2026-11-28T09:36:07.551Z",
+      "elapsedMs": 3052,
       "error": null
     },
     {
@@ -859,8 +865,8 @@
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/detikhalmahera-com-cd8830.json",
       "bytes": 57177,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:27.235Z",
-      "elapsedMs": 9224,
+      "updatedAt": "2026-11-28T09:36:09.667Z",
+      "elapsedMs": 5093,
       "error": null
     },
     {
@@ -873,8 +879,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:18.857Z",
-      "elapsedMs": 275,
+      "updatedAt": "2026-11-28T09:36:05.140Z",
+      "elapsedMs": 341,
       "error": "Sumber menolak akses (HTTP 403)."
     },
     {
@@ -886,10 +892,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/klikfakta-id-05dfda.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/klikfakta-id-05dfda.json",
-      "bytes": 57002,
+      "bytes": 56144,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:20.824Z",
-      "elapsedMs": 2073,
+      "updatedAt": "2026-11-28T09:36:08.071Z",
+      "elapsedMs": 2931,
       "error": null
     },
     {
@@ -901,10 +907,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/malutpost-com-547004.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/malutpost-com-547004.json",
-      "bytes": 113452,
+      "bytes": 115956,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:23.088Z",
-      "elapsedMs": 4230,
+      "updatedAt": "2026-11-28T09:36:08.435Z",
+      "elapsedMs": 3178,
       "error": null
     },
     {
@@ -916,10 +922,10 @@
       "source": "native",
       "feedUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/pikiranummat-com-52d02e.xml",
       "jsonUrl": "https://sietekmalut.github.io/rss-anywhere/feeds/pikiranummat-com-52d02e.json",
-      "bytes": 43727,
+      "bytes": 43832,
       "validated": true,
-      "updatedAt": "2026-11-28T01:44:24.416Z",
-      "elapsedMs": 4928,
+      "updatedAt": "2026-11-28T09:36:11.222Z",
+      "elapsedMs": 4778,
       "error": null
     },
     {
@@ -932,8 +938,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:20.514Z",
-      "elapsedMs": 934,
+      "updatedAt": "2026-11-28T09:36:07.073Z",
+      "elapsedMs": 193,
       "error": "Sumber membalas HTTP 400."
     },
     {
@@ -946,8 +952,8 @@
       "feedUrl": null,
       "jsonUrl": null,
       "validated": false,
-      "updatedAt": "2026-11-28T01:44:22.733Z",
-      "elapsedMs": 3037,
+      "updatedAt": "2026-11-28T09:36:09.863Z",
+      "elapsedMs": 2821,
       "error": "hasil build tidak valid: XML: tidak berisi item; JSON: tidak berisi item"
     }
   ]
